@@ -1,8 +1,12 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lorenzo II C. Badilla</title>  <style>
+
+  <title>Lorenzo II C. Badilla</title>
+
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -12,42 +16,132 @@
 
     body {
       min-height: 100vh;
-      background: #0f0f0f;
+      background:
+        radial-gradient(circle at top, #202020 0%, #0f0f0f 45%, #050505 100%);
       color: white;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       text-align: center;
+      overflow: hidden;
     }
 
+    /* Background Glow */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      background: #ffffff;
+      opacity: 0.03;
+      border-radius: 50%;
+      filter: blur(80px);
+      top: 10%;
+      left: 10%;
+      animation: backgroundMove 8s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 250px;
+      height: 250px;
+      background: #ffffff;
+      opacity: 0.025;
+      border-radius: 50%;
+      filter: blur(80px);
+      bottom: 10%;
+      right: 10%;
+      animation: backgroundMove2 10s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    /* Main Container */
     .container {
       width: 90%;
       max-width: 600px;
       padding: 40px 25px;
+      position: relative;
+      z-index: 1;
+
+      animation: fadeIn 1s ease forwards;
     }
 
     /* Profile Picture */
     .profile {
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
+
+      margin: 0 auto 25px;
+
       border-radius: 50%;
-      margin: 0 auto 20px;
-      overflow: hidden;
-      border: 2px solid #555;
-      background: #1c1c1c;
+      padding: 4px;
+
+      background: linear-gradient(
+        135deg,
+        #ffffff,
+        #777777,
+        #222222,
+        #ffffff
+      );
+
+      background-size: 300% 300%;
+
+      animation:
+        profileFloat 4s ease-in-out infinite,
+        gradientRotate 5s ease infinite;
+
+      box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.25),
+        0 0 40px rgba(255, 255, 255, 0.08);
+
+      transition: 0.4s ease;
+    }
+
+    .profile:hover {
+      transform: scale(1.08);
+
+      box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 60px rgba(255, 255, 255, 0.2);
     }
 
     .profile img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
+
       display: block;
+
+      border-radius: 50%;
+
+      border: 3px solid #0f0f0f;
     }
 
     /* Name */
     h1 {
       font-size: 32px;
       margin-bottom: 10px;
+
+      letter-spacing: 1px;
+
+      background: linear-gradient(
+        90deg,
+        #ffffff,
+        #aaaaaa,
+        #ffffff
+      );
+
+      background-size: 200% auto;
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      animation: textShine 4s linear infinite;
     }
 
     /* Description */
@@ -55,9 +149,11 @@
       color: #aaa;
       margin-bottom: 30px;
       font-size: 16px;
+
+      animation: fadeUp 1.2s ease forwards;
     }
 
-    /* Social Media Buttons */
+    /* Social Buttons */
     .socials {
       display: flex;
       flex-direction: column;
@@ -65,74 +161,292 @@
     }
 
     .socials a {
+      position: relative;
+
+      overflow: hidden;
+
       text-decoration: none;
       color: white;
-      background: #1c1c1c;
+
+      background: linear-gradient(
+        135deg,
+        #1c1c1c,
+        #292929,
+        #151515
+      );
+
+      background-size: 200% 200%;
+
       padding: 16px;
-      border-radius: 12px;
+
+      border-radius: 14px;
+
       border: 1px solid #333;
-      transition: 0.3s;
+
       font-weight: bold;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+      animation: buttonAppear 0.8s ease backwards;
     }
 
+    /* Different animation delays */
+    .socials a:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .socials a:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .socials a:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    /* Shine Effect */
+    .socials a::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -120%;
+
+      width: 80%;
+      height: 100%;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        transparent
+      );
+
+      transform: skewX(-25deg);
+
+      transition: 0.6s;
+    }
+
+    .socials a:hover::before {
+      left: 130%;
+    }
+
+    /* Button Hover */
     .socials a:hover {
-      transform: translateY(-3px);
-      background: #292929;
+      transform: translateY(-6px) scale(1.02);
+
+      background-position: 100% 50%;
+
       border-color: #777;
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(255, 255, 255, 0.08);
+    }
+
+    /* Button Click */
+    .socials a:active {
+      transform: scale(0.96);
     }
 
     /* Footer */
     footer {
       margin-top: 35px;
+
       color: #666;
       font-size: 13px;
+
+      animation: fadeUp 1.5s ease forwards;
+    }
+
+    /* Animations */
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes buttonAppear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes profileFloat {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes gradientRotate {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes textShine {
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    @keyframes backgroundMove {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(100px, 80px);
+      }
+    }
+
+    @keyframes backgroundMove2 {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(-100px, -60px);
+      }
     }
 
     /* Mobile */
     @media (max-width: 500px) {
+
+      .container {
+        padding: 30px 20px;
+      }
+
       h1 {
         font-size: 26px;
       }
 
       .profile {
-        width: 100px;
-        height: 100px;
+        width: 105px;
+        height: 105px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      .socials a {
+        padding: 15px;
       }
     }
-  </style></head><body>  <div class="container"><!-- Profile Picture -->
-<div class="profile">
-  <img src="Files/photo.jpeg" alt="Lorenzo II C. Badilla">
-</div>
 
-<!-- Name -->
-<h1>Lorenzo II C. Badilla</h1>
+    /* Reduce animations for users who prefer less motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
 
-<!-- Description -->
-<p class="description">
-  Welcome to my personal website.
-</p>
+<body>
 
-<!-- Social Media -->
-<div class="socials">
+  <div class="container">
 
-  <a href="https://www.tiktok.com/@loren.zoofficial" target="_blank" rel="noopener noreferrer">
-     TikTok
-  </a>
+    <!-- Profile Picture -->
+    <div class="profile">
+      <img
+        src="Files/myphoto.jpg"
+        alt="Lorenzo II C. Badilla"
+      >
+    </div>
 
-  <a href="https://www.facebook.com/share/1JCAwrrqA8/" target="_blank" rel="noopener noreferrer">
-     Facebook
-  </a>
+    <!-- Name -->
+    <h1>Lorenzo II C. Badilla</h1>
 
-  <a href="https://www.instagram.com/lor.zxa?stkn=OGl2Yjl0MzRxaHFq" target="_blank" rel="noopener noreferrer">
-     Instagram
-  </a>
+    <!-- Description -->
+    <p class="description">
+      Welcome to my personal website.
+    </p>
 
-</div>
+    <!-- Social Media -->
+    <div class="socials">
 
-<!-- Footer -->
-<footer>
-  © 2026 Lorenzo II C. Badilla
-</footer>
+      <a
+        href="https://www.tiktok.com/@loren.zoofficial"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+         TikTok
+      </a>
 
-  </div></body>
+      <a
+        href="https://www.facebook.com/share/1JCAwrrqA8/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+         Facebook
+      </a>
+
+      <a
+        href="https://www.instagram.com/lor.zxa?stkn=OGl2Yjl0MzRxaHFq"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+         Instagram
+      </a>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      © 2026 Lorenzo II C. Badilla
+    </footer>
+
+  </div>
+
+</body>
   </html>
