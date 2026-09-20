@@ -47,7 +47,7 @@ body {
 
 
 /* =========================
-   VIDEO DARK OVERLAY
+   VIDEO OVERLAY
    ========================= */
 
 .video-overlay {
@@ -61,7 +61,7 @@ body {
   background:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.40),
       rgba(0, 0, 0, 0.78)
     );
 
@@ -200,7 +200,7 @@ h1 {
    ========================= */
 
 .description {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
 
   font-size: 16px;
 
@@ -212,7 +212,7 @@ h1 {
 
 
 /* =========================
-   SOCIAL BUTTONS CONTAINER
+   SOCIAL BUTTONS
    ========================= */
 
 .socials {
@@ -225,15 +225,11 @@ h1 {
 }
 
 
-/* =========================
-   SOCIAL BUTTON
-   ========================= */
-
 .social-btn {
   position: relative;
 
   width: 100%;
-  min-height: 68px;
+  min-height: 70px;
 
   display: flex;
   align-items: center;
@@ -245,26 +241,31 @@ h1 {
   text-decoration: none;
 
   background:
-    rgba(15, 15, 15, 0.55);
+    linear-gradient(
+      135deg,
+      rgba(35, 35, 35, 0.70),
+      rgba(10, 10, 10, 0.58)
+    );
 
   border:
-    1px solid rgba(255, 255, 255, 0.18);
+    1px solid rgba(255, 255, 255, 0.20);
 
   border-radius: 20px;
 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   overflow: hidden;
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.45);
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 
   animation: socialAppear 0.7s ease both;
 }
@@ -288,27 +289,68 @@ h1 {
 
 
 /* =========================
-   SOCIAL LOGO
+   COOL SOCIAL ICON
    ========================= */
 
 .social-logo {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
 
-  object-fit: cover;
+  padding: 6px;
 
-  border-radius: 13px;
+  object-fit: contain;
 
-  flex-shrink: 0;
+  border-radius: 14px;
 
   display: block;
 
+  flex-shrink: 0;
+
+  background:
+    rgba(255, 255, 255, 0.10);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.20);
+
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.35);
+    inset 0 0 10px rgba(255, 255, 255, 0.08),
+    0 5px 15px rgba(0, 0, 0, 0.35);
 
   transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+
+/* =========================
+   TIKTOK ICON
+   ========================= */
+
+.tiktok .social-logo {
+  box-shadow:
+    0 0 12px rgba(0, 242, 234, 0.25),
+    0 0 22px rgba(255, 0, 80, 0.18);
+}
+
+
+/* =========================
+   FACEBOOK ICON
+   ========================= */
+
+.facebook .social-logo {
+  box-shadow:
+    0 0 18px rgba(24, 119, 242, 0.35);
+}
+
+
+/* =========================
+   INSTAGRAM ICON
+   ========================= */
+
+.instagram .social-logo {
+  box-shadow:
+    0 0 18px rgba(225, 48, 108, 0.30);
 }
 
 
@@ -341,13 +383,13 @@ h1 {
   opacity: 0.55;
 
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+    transform 0.35s ease,
+    opacity 0.35s ease;
 }
 
 
 /* =========================
-   SHINE EFFECT
+   LIGHT SHINE
    ========================= */
 
 .social-btn::before {
@@ -365,7 +407,7 @@ h1 {
     linear-gradient(
       100deg,
       transparent,
-      rgba(255, 255, 255, 0.22),
+      rgba(255, 255, 255, 0.20),
       transparent
     );
 
@@ -383,31 +425,50 @@ h1 {
 
 
 /* =========================
-   HOVER
+   BUTTON HOVER
    ========================= */
 
 .social-btn:hover {
   transform: translateY(-6px) scale(1.02);
 
   background:
-    rgba(35, 35, 35, 0.68);
+    linear-gradient(
+      135deg,
+      rgba(50, 50, 50, 0.78),
+      rgba(15, 15, 15, 0.68)
+    );
 
   border-color:
     rgba(255, 255, 255, 0.38);
 
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.6),
-    0 0 25px rgba(255, 255, 255, 0.08);
+    0 18px 40px rgba(0, 0, 0, 0.60),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
+
+/* =========================
+   ICON HOVER
+   ========================= */
 
 .social-btn:hover .social-logo {
-  transform: scale(1.12) rotate(-3deg);
+  transform: scale(1.12) rotate(-4deg);
 
-  filter:
-    drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
+  background:
+    rgba(255, 255, 255, 0.16);
+
+  border-color:
+    rgba(255, 255, 255, 0.40);
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.18),
+    0 8px 20px rgba(0, 0, 0, 0.40);
 }
 
+
+/* =========================
+   ARROW HOVER
+   ========================= */
 
 .social-btn:hover .arrow {
   opacity: 1;
@@ -417,44 +478,45 @@ h1 {
 
 
 /* =========================
-   CLICK
-   ========================= */
-
-.social-btn:active {
-  transform: scale(0.96);
-}
-
-
-/* =========================
-   TIKTOK
+   TIKTOK BUTTON GLOW
    ========================= */
 
 .tiktok:hover {
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.6),
-    0 0 35px rgba(255, 0, 80, 0.25);
+    0 18px 40px rgba(0, 0, 0, 0.60),
+    0 0 35px rgba(255, 0, 80, 0.22),
+    0 0 20px rgba(0, 242, 234, 0.12);
 }
 
 
 /* =========================
-   FACEBOOK
+   FACEBOOK BUTTON GLOW
    ========================= */
 
 .facebook:hover {
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.6),
-    0 0 35px rgba(24, 119, 242, 0.3);
+    0 18px 40px rgba(0, 0, 0, 0.60),
+    0 0 35px rgba(24, 119, 242, 0.25);
 }
 
 
 /* =========================
-   INSTAGRAM
+   INSTAGRAM BUTTON GLOW
    ========================= */
 
 .instagram:hover {
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.6),
-    0 0 35px rgba(225, 48, 108, 0.28);
+    0 18px 40px rgba(0, 0, 0, 0.60),
+    0 0 35px rgba(225, 48, 108, 0.25);
+}
+
+
+/* =========================
+   CLICK EFFECT
+   ========================= */
+
+.social-btn:active {
+  transform: scale(0.96);
 }
 
 
@@ -467,12 +529,12 @@ footer {
 
   padding-top: 50px;
 
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.48);
 
   font-size: 13px;
 
   text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.6);
+    0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 
@@ -484,13 +546,11 @@ footer {
 
   from {
     opacity: 0;
-
     transform: translateY(25px);
   }
 
   to {
     opacity: 1;
-
     transform: translateY(0);
   }
 }
@@ -500,13 +560,11 @@ footer {
 
   from {
     opacity: 0;
-
     transform: translateY(25px);
   }
 
   to {
     opacity: 1;
-
     transform: translateY(0);
   }
 }
@@ -582,17 +640,23 @@ footer {
   }
 
   .social-btn {
-    min-height: 64px;
+    min-height: 66px;
 
-    border-radius: 17px;
+    border-radius: 18px;
   }
 
   .social-logo {
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
+
+    border-radius: 13px;
   }
 
   .social-name {
     font-size: 15px;
   }
-}
+
+  .arrow {
+    font-size: 22px;
+  }
+       }
