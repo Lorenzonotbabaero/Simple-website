@@ -1,46 +1,115 @@
+/* =========================
+   RESET
+   ========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
+
+
+/* =========================
+   BODY
+   ========================= */
 
 body {
   min-height: 100vh;
 
-  background:
-    radial-gradient(circle at top, #202020 0%, #0f0f0f 45%, #050505 100%);
+  font-family: Arial, sans-serif;
 
   color: white;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-x: hidden;
 
-  text-align: center;
+  background: #050505;
 }
 
-/* Main Container */
+
+/* =========================
+   VIDEO BACKGROUND
+   ========================= */
+
+.background-video {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: -2;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   VIDEO OVERLAY
+   ========================= */
+
+.video-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.72)
+    );
+
+  backdrop-filter: blur(2px);
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+   ========================= */
+
 .container {
   width: 90%;
   max-width: 600px;
+
   min-height: 100vh;
 
-  padding: 70px 25px 25px;
+  margin: auto;
+
+  padding: 60px 25px 25px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  text-align: center;
+
+  animation: pageEnter 1s ease;
 }
 
-/* Profile Picture */
+
+/* =========================
+   PROFILE PICTURE
+   ========================= */
+
 .profile {
   width: 120px;
   height: 120px;
 
-  margin-bottom: 25px;
-
   padding: 4px;
+
+  margin-bottom: 25px;
 
   border-radius: 50%;
 
@@ -56,24 +125,28 @@ body {
 
   animation:
     profileFloat 4s ease-in-out infinite,
-    gradientRotate 5s ease infinite;
+    profileGradient 5s ease infinite;
 
   box-shadow:
-    0 0 15px rgba(255, 255, 255, 0.3),
-    0 0 40px rgba(255, 255, 255, 0.1);
+    0 0 20px rgba(255, 255, 255, 0.35),
+    0 0 50px rgba(255, 255, 255, 0.15);
 
-  transition: 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 
   overflow: hidden;
 }
+
 
 .profile:hover {
   transform: scale(1.08);
 
   box-shadow:
-    0 0 25px rgba(255, 255, 255, 0.5),
-    0 0 60px rgba(255, 255, 255, 0.2);
+    0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 70px rgba(255, 255, 255, 0.2);
 }
+
 
 .profile img {
   width: 100%;
@@ -85,12 +158,17 @@ body {
 
   border-radius: 50%;
 
-  border: 3px solid #0f0f0f;
+  border: 3px solid #080808;
 }
 
-/* Name */
+
+/* =========================
+   NAME
+   ========================= */
+
 h1 {
   font-size: 32px;
+
   margin-bottom: 10px;
 
   letter-spacing: 1px;
@@ -105,112 +183,339 @@ h1 {
   background-size: 200% auto;
 
   -webkit-background-clip: text;
+  background-clip: text;
+
   -webkit-text-fill-color: transparent;
 
   animation: textShine 4s linear infinite;
 }
 
-/* Description */
+
+/* =========================
+   DESCRIPTION
+   ========================= */
+
 .description {
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 16px;
 
   margin-bottom: 30px;
 
-  font-size: 16px;
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Social Buttons */
+
+/* =========================
+   SOCIAL BUTTONS
+   ========================= */
+
 .socials {
   width: 100%;
 
   display: flex;
   flex-direction: column;
 
-  gap: 15px;
+  gap: 16px;
 }
 
-.socials a {
+
+/* =========================
+   SOCIAL BUTTON
+   ========================= */
+
+.social-btn {
   position: relative;
 
-  overflow: hidden;
+  width: 100%;
+  min-height: 64px;
 
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
 
   color: white;
 
-  background: linear-gradient(
-    135deg,
-    #1c1c1c,
-    #292929,
-    #151515
-  );
+  text-decoration: none;
 
-  padding: 17px;
+  background:
+    rgba(20, 20, 20, 0.48);
 
-  border-radius: 14px;
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
 
-  border: 1px solid #333;
+  border-radius: 18px;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  animation: socialAppear 0.7s ease both;
+}
+
+
+/* =========================
+   BUTTON DELAYS
+   ========================= */
+
+.social-btn:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.social-btn:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.social-btn:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+
+/* =========================
+   SOCIAL ICON
+   ========================= */
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    rgba(255, 255, 255, 0.09);
+
+  font-size: 22px;
 
   font-weight: bold;
 
-  transition: 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
-.socials a:hover {
-  transform: translateY(-6px) scale(1.02);
 
-  border-color: #777;
+/* =========================
+   SOCIAL NAME
+   ========================= */
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(255, 255, 255, 0.1);
+.social-name {
+  flex: 1;
+
+  margin-left: 15px;
+
+  text-align: left;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
 }
 
-.socials a:active {
-  transform: scale(0.96);
+
+/* =========================
+   ARROW
+   ========================= */
+
+.arrow {
+  font-size: 22px;
+
+  opacity: 0.5;
+
+  transform: translateX(0);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
-/* Button Shine */
-.socials a::before {
+
+/* =========================
+   BUTTON SHINE
+   ========================= */
+
+.social-btn::before {
   content: "";
 
   position: absolute;
 
   top: 0;
-  left: -120%;
+  left: -130%;
 
-  width: 80%;
+  width: 70%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background:
+    linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
 
-  transform: skewX(-25deg);
+  transform: skewX(-20deg);
 
-  transition: 0.6s;
+  transition: left 0.7s ease;
+
+  pointer-events: none;
 }
 
-.socials a:hover::before {
-  left: 130%;
+
+.social-btn:hover::before {
+  left: 140%;
 }
 
-/* Copyright */
+
+/* =========================
+   HOVER EFFECT
+   ========================= */
+
+.social-btn:hover {
+  transform: translateY(-6px) scale(1.02);
+
+  background:
+    rgba(35, 35, 35, 0.6);
+
+  border-color:
+    rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.55),
+    0 0 25px rgba(255, 255, 255, 0.08);
+}
+
+
+.social-btn:hover .social-icon {
+  transform: scale(1.1) rotate(-3deg);
+
+  background:
+    rgba(255, 255, 255, 0.16);
+}
+
+
+.social-btn:hover .arrow {
+  opacity: 1;
+
+  transform: translateX(7px);
+}
+
+
+/* =========================
+   CLICK EFFECT
+   ========================= */
+
+.social-btn:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================
+   TIKTOK GLOW
+   ========================= */
+
+.tiktok:hover {
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(255, 0, 80, 0.18);
+}
+
+
+/* =========================
+   FACEBOOK GLOW
+   ========================= */
+
+.facebook:hover {
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(24, 119, 242, 0.22);
+}
+
+
+/* =========================
+   INSTAGRAM GLOW
+   ========================= */
+
+.instagram:hover {
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(225, 48, 108, 0.22);
+}
+
+
+/* =========================
+   COPYRIGHT
+   ========================= */
+
 footer {
   margin-top: auto;
+
   padding-top: 50px;
 
-  color: #666;
+  color: rgba(255, 255, 255, 0.45);
 
   font-size: 13px;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Animations */
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+
+@keyframes pageEnter {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes socialAppear {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
 @keyframes profileFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -219,7 +524,9 @@ footer {
   }
 }
 
-@keyframes gradientRotate {
+
+@keyframes profileGradient {
+
   0% {
     background-position: 0% 50%;
   }
@@ -233,7 +540,9 @@ footer {
   }
 }
 
+
 @keyframes textShine {
+
   0% {
     background-position: 0% center;
   }
@@ -243,11 +552,20 @@ footer {
   }
 }
 
-/* Mobile */
+
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 500px) {
 
   .container {
-    padding: 60px 20px 20px;
+    width: 92%;
+
+    padding:
+      55px
+      18px
+      20px;
   }
 
   .profile {
@@ -263,7 +581,33 @@ footer {
     font-size: 15px;
   }
 
-  .socials a {
-    padding: 16px;
+  .social-btn {
+    min-height: 60px;
+
+    border-radius: 16px;
   }
-   }
+
+  .social-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .social-name {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================
+   REDUCE MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  }
