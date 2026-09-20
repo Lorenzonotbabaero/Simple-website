@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,11 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- EmailJS -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <script>
     emailjs.init({
-      publicKey: "YOUR_PUBLIC_KEY"
+      publicKey: "yWCbXVy9EpRv6Dt_c"
     });
   </script>
 </head>
@@ -37,7 +36,7 @@
   <div class="video-overlay"></div>
 
 
-  <!-- MAIN -->
+  <!-- MAIN CONTENT -->
   <main class="container">
 
     <!-- PROFILE -->
@@ -163,8 +162,10 @@
       </div>
 
 
+      <!-- CONTACT FORM -->
       <form id="contact-form">
 
+        <!-- NAME -->
         <input
           type="text"
           name="name"
@@ -173,6 +174,8 @@
           required
         >
 
+
+        <!-- EMAIL -->
         <input
           type="email"
           name="email"
@@ -181,6 +184,17 @@
           required
         >
 
+
+        <!-- SUBJECT -->
+        <input
+          type="text"
+          name="title"
+          placeholder="Subject"
+          required
+        >
+
+
+        <!-- MESSAGE -->
         <textarea
           name="message"
           placeholder="Write your message..."
@@ -189,6 +203,7 @@
         ></textarea>
 
 
+        <!-- SEND BUTTON -->
         <button
           type="submit"
           class="send-btn"
@@ -206,6 +221,7 @@
       </form>
 
 
+      <!-- STATUS -->
       <p
         id="form-status"
         class="form-status"
@@ -245,22 +261,32 @@
 
       event.preventDefault();
 
+
+      // Disable button while sending
       button.disabled = true;
 
       sendText.textContent = "Sending...";
-
       sendIcon.textContent = "⏳";
 
       status.textContent = "";
+      status.className = "form-status";
 
 
+      // SEND EMAIL THROUGH EMAILJS
       emailjs.sendForm(
         "service_mdvmj8k",
         "template_1fz2w1p",
         form
       )
 
-      .then(function() {
+      .then(function(response) {
+
+        console.log(
+          "EmailJS SUCCESS:",
+          response.status,
+          response.text
+        );
+
 
         status.textContent =
           "✓ Message sent successfully!";
@@ -268,7 +294,10 @@
         status.className =
           "form-status success";
 
+
+        // Clear form
         form.reset();
+
 
         sendText.textContent =
           "Message Sent";
@@ -277,6 +306,7 @@
           "✓";
 
 
+        // Restore button
         setTimeout(function() {
 
           sendText.textContent =
@@ -285,24 +315,28 @@
           sendIcon.textContent =
             "➤";
 
-          button.disabled = false;
+          button.disabled =
+            false;
 
         }, 3000);
 
       })
 
+
       .catch(function(error) {
 
         console.error(
-          "EmailJS Error:",
+          "EmailJS ERROR:",
           error
         );
 
+
         status.textContent =
-          "✕ Failed to send. Please try again.";
+          "✕ Failed to send. Please check your EmailJS settings.";
 
         status.className =
           "form-status error";
+
 
         sendText.textContent =
           "Try Again";
@@ -310,7 +344,9 @@
         sendIcon.textContent =
           "↻";
 
-        button.disabled = false;
+
+        button.disabled =
+          false;
 
       });
 
@@ -319,4 +355,5 @@
   </script>
 
 </body>
+
 </html>
