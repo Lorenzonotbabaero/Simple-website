@@ -3,92 +3,276 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Lorenzo II C. Badilla</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Background Video -->
-  <video class="background-video" autoplay muted loop playsinline>
+  <!-- =========================
+       BACKGROUND VIDEO
+       ========================= -->
+
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
     <source src="Files/an.mp4" type="video/mp4">
   </video>
 
   <div class="video-overlay"></div>
 
+
+  <!-- =========================
+       MAIN CONTENT
+       ========================= -->
+
   <main class="container">
 
-    <!-- Profile -->
+    <!-- PROFILE -->
     <div class="profile">
-      <img src="Files/photo.jpeg" alt="Lorenzo II C. Badilla">
+      <img
+        src="Files/photo.jpeg"
+        alt="Lorenzo II C. Badilla"
+      >
     </div>
 
+
+    <!-- NAME -->
     <h1>Lorenzo II C. Badilla</h1>
 
+
+    <!-- DESCRIPTION -->
     <p class="description">
       Welcome to my personal website.
     </p>
 
-    <!-- Social Buttons -->
+
+    <!-- =========================
+         SOCIAL BUTTONS
+         ========================= -->
+
     <div class="socials">
 
-      <!-- TikTok -->
+      <!-- TIKTOK -->
       <a
         class="social-btn tiktok"
         href="https://www.tiktok.com/@loren.zoofficial"
         target="_blank"
         rel="noopener noreferrer"
       >
+
         <img
           src="Files/tiktok.png"
           alt="TikTok"
           class="social-logo"
         >
 
-        <span class="social-name">TikTok</span>
+        <span class="social-name">
+          TikTok
+        </span>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
+
       </a>
 
 
-      <!-- Facebook -->
+      <!-- FACEBOOK -->
       <a
         class="social-btn facebook"
         href="https://www.facebook.com/share/1JCAwrrqA8/"
         target="_blank"
         rel="noopener noreferrer"
       >
+
         <img
           src="Files/facebook.png"
           alt="Facebook"
           class="social-logo"
         >
 
-        <span class="social-name">Facebook</span>
+        <span class="social-name">
+          Facebook
+        </span>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
+
       </a>
 
 
-      <!-- Instagram -->
+      <!-- INSTAGRAM -->
       <a
         class="social-btn instagram"
         href="https://www.instagram.com/lor.zxa?stkn=OGl2Yjl0MzRxaHFq"
         target="_blank"
         rel="noopener noreferrer"
       >
+
         <img
-          src="Files/instagram.jpeg"
+          src="Files/instagram.jpg"
           alt="Instagram"
           class="social-logo"
         >
 
-        <span class="social-name">Instagram</span>
+        <span class="social-name">
+          Instagram
+        </span>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
+
+      </a>
+
+
+      <!-- SEND MESSAGE BUTTON -->
+      <a
+        href="#message"
+        class="social-btn message-btn"
+      >
+
+        <span class="message-icon">
+          ✉
+        </span>
+
+        <span class="social-name">
+          Send a Message
+        </span>
+
+        <span class="arrow">
+          →
+        </span>
+
       </a>
 
     </div>
+
+
+    <!-- =========================
+         MESSAGE FORM
+         ========================= -->
+
+    <section
+      id="message"
+      class="message-box"
+    >
+
+      <div class="message-header">
+
+        <div class="message-title-icon">
+          ✉
+        </div>
+
+        <div>
+          <h2>
+            Send a Message
+          </h2>
+
+          <p>
+            I'd love to hear from you.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!--
+        IMPORTANT:
+        Replace YOUR_EMAIL@example.com
+        with your real email address.
+      -->
+
+      <form
+        action="https://formsubmit.co/YOUR_EMAIL@example.com"
+        method="POST"
+      >
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="New message from Lorenzo's website"
+        >
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="false"
+        >
+
+        <input
+          type="hidden"
+          name="_template"
+          value="table"
+        >
+
+
+        <!-- NAME -->
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          autocomplete="name"
+          required
+        >
+
+
+        <!-- EMAIL -->
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          autocomplete="email"
+          required
+        >
+
+
+        <!-- MESSAGE -->
+
+        <textarea
+          name="message"
+          placeholder="Write your message..."
+          rows="5"
+          required
+        ></textarea>
+
+
+        <!-- SEND -->
+
+        <button
+          type="submit"
+          class="send-btn"
+        >
+
+          <span>
+            Send Message
+          </span>
+
+          <span>
+            ➤
+          </span>
+
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
 
     <footer>
       © 2026 ALL RIGHT RESERVED
