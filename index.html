@@ -36,7 +36,7 @@
   <div class="video-overlay"></div>
 
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main class="container">
 
     <!-- PROFILE -->
@@ -127,13 +127,20 @@
         href="#message"
         class="social-btn message-btn"
       >
-        <span class="message-icon">✉</span>
+
+        <span class="message-icon">
+          <img
+            src="Files/message.png"
+            alt="Message"
+          >
+        </span>
 
         <span class="social-name">
           Send a Message
         </span>
 
         <span class="arrow">→</span>
+
       </a>
 
     </div>
@@ -148,7 +155,10 @@
       <div class="message-header">
 
         <div class="message-title-icon">
-          ✉
+          <img
+            src="Files/message.png"
+            alt="Message"
+          >
         </div>
 
         <div>
@@ -185,15 +195,6 @@
         >
 
 
-        <!-- SUBJECT -->
-        <input
-          type="text"
-          name="title"
-          placeholder="Subject"
-          required
-        >
-
-
         <!-- MESSAGE -->
         <textarea
           name="message"
@@ -209,6 +210,7 @@
           class="send-btn"
           id="send-button"
         >
+
           <span id="send-text">
             Send Message
           </span>
@@ -216,6 +218,7 @@
           <span id="send-icon">
             ➤
           </span>
+
         </button>
 
       </form>
@@ -262,17 +265,22 @@
       event.preventDefault();
 
 
-      // Disable button while sending
       button.disabled = true;
 
-      sendText.textContent = "Sending...";
-      sendIcon.textContent = "⏳";
+      sendText.textContent =
+        "Sending...";
+
+      sendIcon.textContent =
+        "⏳";
 
       status.textContent = "";
-      status.className = "form-status";
+
+      status.className =
+        "form-status";
 
 
-      // SEND EMAIL THROUGH EMAILJS
+      /* SEND EMAIL */
+
       emailjs.sendForm(
         "service_mdvmj8k",
         "template_1fz2w1p",
@@ -282,7 +290,7 @@
       .then(function(response) {
 
         console.log(
-          "EmailJS SUCCESS:",
+          "EMAIL SENT:",
           response.status,
           response.text
         );
@@ -295,7 +303,6 @@
           "form-status success";
 
 
-        // Clear form
         form.reset();
 
 
@@ -306,7 +313,6 @@
           "✓";
 
 
-        // Restore button
         setTimeout(function() {
 
           sendText.textContent =
@@ -326,13 +332,13 @@
       .catch(function(error) {
 
         console.error(
-          "EmailJS ERROR:",
+          "EMAILJS ERROR:",
           error
         );
 
 
         status.textContent =
-          "✕ Failed to send. Please check your EmailJS settings.";
+          "✕ Failed to send message. Please try again.";
 
         status.className =
           "form-status error";
