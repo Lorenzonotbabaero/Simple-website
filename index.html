@@ -7,14 +7,22 @@
   <title>Lorenzo II C. Badilla</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+
+  <script>
+    emailjs.init({
+      publicKey: "YOUR_PUBLIC_KEY"
+    });
+  </script>
 </head>
 
 <body>
 
-  <!-- =========================
-       BACKGROUND VIDEO
-       ========================= -->
-
+  <!-- BACKGROUND VIDEO -->
   <video
     class="background-video"
     autoplay
@@ -29,10 +37,7 @@
   <div class="video-overlay"></div>
 
 
-  <!-- =========================
-       MAIN CONTENT
-       ========================= -->
-
+  <!-- MAIN -->
   <main class="container">
 
     <!-- PROFILE -->
@@ -47,17 +52,12 @@
     <!-- NAME -->
     <h1>Lorenzo II C. Badilla</h1>
 
-
-    <!-- DESCRIPTION -->
     <p class="description">
       Welcome to my personal website.
     </p>
 
 
-    <!-- =========================
-         SOCIAL BUTTONS
-         ========================= -->
-
+    <!-- SOCIAL BUTTONS -->
     <div class="socials">
 
       <!-- TIKTOK -->
@@ -67,7 +67,6 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-
         <img
           src="Files/tiktok.png"
           alt="TikTok"
@@ -78,10 +77,7 @@
           TikTok
         </span>
 
-        <span class="arrow">
-          →
-        </span>
-
+        <span class="arrow">→</span>
       </a>
 
 
@@ -92,7 +88,6 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-
         <img
           src="Files/facebook.png"
           alt="Facebook"
@@ -103,10 +98,7 @@
           Facebook
         </span>
 
-        <span class="arrow">
-          →
-        </span>
-
+        <span class="arrow">→</span>
       </a>
 
 
@@ -117,7 +109,6 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-
         <img
           src="Files/instagram.jpg"
           alt="Instagram"
@@ -128,40 +119,28 @@
           Instagram
         </span>
 
-        <span class="arrow">
-          →
-        </span>
-
+        <span class="arrow">→</span>
       </a>
 
 
-      <!-- SEND MESSAGE BUTTON -->
+      <!-- SEND MESSAGE -->
       <a
         href="#message"
         class="social-btn message-btn"
       >
-
-        <span class="message-icon">
-          ✉
-        </span>
+        <span class="message-icon">✉</span>
 
         <span class="social-name">
           Send a Message
         </span>
 
-        <span class="arrow">
-          →
-        </span>
-
+        <span class="arrow">→</span>
       </a>
 
     </div>
 
 
-    <!-- =========================
-         MESSAGE FORM
-         ========================= -->
-
+    <!-- MESSAGE FORM -->
     <section
       id="message"
       class="message-box"
@@ -174,9 +153,7 @@
         </div>
 
         <div>
-          <h2>
-            Send a Message
-          </h2>
+          <h2>Send a Message</h2>
 
           <p>
             I'd love to hear from you.
@@ -186,37 +163,7 @@
       </div>
 
 
-      <!--
-        IMPORTANT:
-        Replace YOUR_EMAIL@example.com
-        with your real email address.
-      -->
-
-      <form
-        action="https://formsubmit.co/badillalorenzo20@gmail.com"
-        method="POST"
-      >
-
-        <input
-          type="hidden"
-          name="_subject"
-          value="New message from Lorenzo's website"
-        >
-
-        <input
-          type="hidden"
-          name="_captcha"
-          value="false"
-        >
-
-        <input
-          type="hidden"
-          name="_template"
-          value="table"
-        >
-
-
-        <!-- NAME -->
+      <form id="contact-form">
 
         <input
           type="text"
@@ -226,9 +173,6 @@
           required
         >
 
-
-        <!-- EMAIL -->
-
         <input
           type="email"
           name="email"
@@ -236,9 +180,6 @@
           autocomplete="email"
           required
         >
-
-
-        <!-- MESSAGE -->
 
         <textarea
           name="message"
@@ -248,37 +189,134 @@
         ></textarea>
 
 
-        <!-- SEND -->
-
         <button
           type="submit"
           class="send-btn"
+          id="send-button"
         >
-
-          <span>
+          <span id="send-text">
             Send Message
           </span>
 
-          <span>
+          <span id="send-icon">
             ➤
           </span>
-
         </button>
 
       </form>
 
+
+      <p
+        id="form-status"
+        class="form-status"
+      ></p>
+
     </section>
 
 
-    <!-- =========================
-         FOOTER
-         ========================= -->
-
+    <!-- FOOTER -->
     <footer>
-      © 2026 ALL RIGHT RESERVED
+      © 2026 Lorenzo II C. Badilla
     </footer>
 
   </main>
+
+
+  <!-- EMAILJS -->
+  <script>
+
+    const form =
+      document.getElementById("contact-form");
+
+    const button =
+      document.getElementById("send-button");
+
+    const sendText =
+      document.getElementById("send-text");
+
+    const sendIcon =
+      document.getElementById("send-icon");
+
+    const status =
+      document.getElementById("form-status");
+
+
+    form.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      button.disabled = true;
+
+      sendText.textContent = "Sending...";
+
+      sendIcon.textContent = "⏳";
+
+      status.textContent = "";
+
+
+      emailjs.sendForm(
+        "service_mdvmj8k",
+        "template_1fz2w1p",
+        form
+      )
+
+      .then(function() {
+
+        status.textContent =
+          "✓ Message sent successfully!";
+
+        status.className =
+          "form-status success";
+
+        form.reset();
+
+        sendText.textContent =
+          "Message Sent";
+
+        sendIcon.textContent =
+          "✓";
+
+
+        setTimeout(function() {
+
+          sendText.textContent =
+            "Send Message";
+
+          sendIcon.textContent =
+            "➤";
+
+          button.disabled = false;
+
+        }, 3000);
+
+      })
+
+      .catch(function(error) {
+
+        console.error(
+          "EmailJS Error:",
+          error
+        );
+
+        status.textContent =
+          "✕ Failed to send. Please try again.";
+
+        status.className =
+          "form-status error";
+
+        sendText.textContent =
+          "Try Again";
+
+        sendIcon.textContent =
+          "↻";
+
+        button.disabled = false;
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
