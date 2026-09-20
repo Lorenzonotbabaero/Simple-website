@@ -1,6 +1,6 @@
 
 
-#Welcome to my personal website! 👋
+# Welcome to my personal website! 👋
 
 This repository contains the source code for my personal website, created using HTML and CSS and hosted with Render.
 
@@ -10,7 +10,7 @@ Lorenzo II C. Badilla
 
 A simple personal website featuring my profile and social media links.
 
-📁 Project Structure
+# 📁 Project Structure
 
 lorenzo-website/
 ├── index.html
@@ -18,7 +18,7 @@ lorenzo-website/
 └── Files/
     └── myphoto.jpg
 
-✨ Features
+# ✨ Features
 
 - 👤 Personal profile
 - 🖼️ Profile picture
@@ -29,14 +29,14 @@ lorenzo-website/
 - 🌙 Dark theme
 - ⚡ Simple and lightweight
 
-🛠️ Technologies
+# 🛠️ Technologies
 
 - HTML5
 - CSS3
 - GitHub
 - Render
 
-🔗 Social Media
+## 🔗 Social Media
 
 - TikTok: @loren.zoofficial
 - Facebook: Lorenzo II C. Badilla
