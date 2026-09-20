@@ -11,7 +11,24 @@
 
 <body>
 
-  <div class="container">
+  <!-- Background Video -->
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="Files/an.mp4" type="video/mp4">
+    Your browser does not support video backgrounds.
+  </video>
+
+  <!-- Dark Video Overlay -->
+  <div class="video-overlay"></div>
+
+  <!-- Main Content -->
+  <main class="container">
 
     <!-- Profile Picture -->
     <div class="profile">
@@ -32,28 +49,40 @@
     <!-- Social Media -->
     <div class="socials">
 
+      <!-- TikTok -->
       <a
+        class="social-btn tiktok"
         href="https://www.tiktok.com/@loren.zoofficial"
         target="_blank"
         rel="noopener noreferrer"
       >
-         TikTok
+        <span class="social-icon">♪</span>
+        <span class="social-name">TikTok</span>
+        <span class="arrow">→</span>
       </a>
 
+      <!-- Facebook -->
       <a
+        class="social-btn facebook"
         href="https://www.facebook.com/share/1JCAwrrqA8/"
         target="_blank"
         rel="noopener noreferrer"
       >
-         Facebook
+        <span class="social-icon">f</span>
+        <span class="social-name">Facebook</span>
+        <span class="arrow">→</span>
       </a>
 
+      <!-- Instagram -->
       <a
+        class="social-btn instagram"
         href="https://www.instagram.com/lor.zxa?stkn=OGl2Yjl0MzRxaHFq"
         target="_blank"
         rel="noopener noreferrer"
       >
-         Instagram
+        <span class="social-icon">◎</span>
+        <span class="social-name">Instagram</span>
+        <span class="arrow">→</span>
       </a>
 
     </div>
@@ -63,7 +92,7 @@
       © 2026 Lorenzo II C. Badilla
     </footer>
 
-  </div>
+  </main>
 
 </body>
-</html>
+        </html>
