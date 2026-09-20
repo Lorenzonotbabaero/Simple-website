@@ -21,7 +21,10 @@
 
 <body>
 
-  <!-- BACKGROUND VIDEO -->
+  <!-- =========================
+       BACKGROUND VIDEO
+  ========================== -->
+
   <video
     class="background-video"
     autoplay
@@ -36,7 +39,10 @@
   <div class="video-overlay"></div>
 
 
-  <!-- MAIN -->
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
   <main class="container">
 
     <!-- PROFILE -->
@@ -56,16 +62,22 @@
     </p>
 
 
-    <!-- SOCIAL BUTTONS -->
+    <!-- =========================
+         SOCIAL BUTTONS
+    ========================== -->
+
     <div class="socials">
 
+
       <!-- TIKTOK -->
+
       <a
         class="social-btn tiktok"
         href="https://www.tiktok.com/@loren.zoofficial"
         target="_blank"
         rel="noopener noreferrer"
       >
+
         <img
           src="Files/tiktok.png"
           alt="TikTok"
@@ -76,17 +88,22 @@
           TikTok
         </span>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
+
       </a>
 
 
       <!-- FACEBOOK -->
+
       <a
         class="social-btn facebook"
         href="https://www.facebook.com/share/1JCAwrrqA8/"
         target="_blank"
         rel="noopener noreferrer"
       >
+
         <img
           src="Files/facebook.png"
           alt="Facebook"
@@ -97,19 +114,24 @@
           Facebook
         </span>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
+
       </a>
 
 
       <!-- INSTAGRAM -->
+
       <a
         class="social-btn instagram"
         href="https://www.instagram.com/lor.zxa?stkn=OGl2Yjl0MzRxaHFq"
         target="_blank"
         rel="noopener noreferrer"
       >
+
         <img
-          src="Files/instagram.jpeg"
+          src="Files/instagram.jpg"
           alt="Instagram"
           class="social-logo"
         >
@@ -118,122 +140,179 @@
           Instagram
         </span>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
+
       </a>
 
 
       <!-- SEND MESSAGE -->
-      <a
-        href="#message"
+
+      <button
+        type="button"
         class="social-btn message-btn"
+        id="open-message"
       >
 
         <span class="message-icon">
+
           <img
             src="Files/message.png"
             alt="Message"
           >
+
         </span>
 
         <span class="social-name">
           Send a Message
         </span>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
 
-      </a>
+      </button>
 
     </div>
 
 
-    <!-- MESSAGE FORM -->
-    <section
-      id="message"
-      class="message-box"
+    <!-- =========================
+         MESSAGE MODAL
+    ========================== -->
+
+    <div
+      class="message-modal"
+      id="message-modal"
+      aria-hidden="true"
     >
 
-      <div class="message-header">
+      <!-- DARK BACKDROP -->
 
-        <div class="message-title-icon">
-          <img
-            src="Files/message.png"
-            alt="Message"
-          >
-        </div>
-
-        <div>
-          <h2>Send a Message</h2>
-
-          <p>
-            I'd love to hear from you.
-          </p>
-        </div>
-
-      </div>
+      <div
+        class="modal-backdrop"
+        id="modal-backdrop"
+      ></div>
 
 
-      <!-- CONTACT FORM -->
-      <form id="contact-form">
+      <!-- MESSAGE CARD -->
 
-        <!-- NAME -->
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          autocomplete="name"
-          required
-        >
+      <section class="message-box">
 
 
-        <!-- EMAIL -->
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          autocomplete="email"
-          required
-        >
+        <!-- CLOSE BUTTON -->
 
-
-        <!-- MESSAGE -->
-        <textarea
-          name="message"
-          placeholder="Write your message..."
-          rows="5"
-          required
-        ></textarea>
-
-
-        <!-- SEND BUTTON -->
         <button
-          type="submit"
-          class="send-btn"
-          id="send-button"
+          type="button"
+          class="close-message"
+          id="close-message"
+          aria-label="Close"
         >
-
-          <span id="send-text">
-            Send Message
-          </span>
-
-          <span id="send-icon">
-            ➤
-          </span>
-
+          ×
         </button>
 
-      </form>
+
+        <!-- HEADER -->
+
+        <div class="message-header">
+
+          <div class="message-title-icon">
+
+            <img
+              src="Files/message.png"
+              alt="Message"
+            >
+
+          </div>
 
 
-      <!-- STATUS -->
-      <p
-        id="form-status"
-        class="form-status"
-      ></p>
+          <div>
 
-    </section>
+            <h2>
+              Send a Message
+            </h2>
+
+            <p>
+              I'd love to hear from you.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+
+        <form id="contact-form">
+
+
+          <!-- NAME -->
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            autocomplete="name"
+            required
+          >
+
+
+          <!-- EMAIL -->
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            autocomplete="email"
+            required
+          >
+
+
+          <!-- MESSAGE -->
+
+          <textarea
+            name="message"
+            placeholder="Write your message..."
+            rows="5"
+            required
+          ></textarea>
+
+
+          <!-- SEND -->
+
+          <button
+            type="submit"
+            class="send-btn"
+            id="send-button"
+          >
+
+            <span id="send-text">
+              Send Message
+            </span>
+
+            <span id="send-icon">
+              ➤
+            </span>
+
+          </button>
+
+        </form>
+
+
+        <!-- STATUS -->
+
+        <p
+          id="form-status"
+          class="form-status"
+        ></p>
+
+      </section>
+
+    </div>
 
 
     <!-- FOOTER -->
+
     <footer>
       © 2026 Lorenzo II C. Badilla
     </footer>
@@ -241,125 +320,251 @@
   </main>
 
 
-  <!-- EMAILJS -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
   <script>
 
+    /* =========================
+       MESSAGE MODAL
+    ========================== */
+
+    const openMessage =
+      document.getElementById("open-message");
+
+    const closeMessage =
+      document.getElementById("close-message");
+
+    const messageModal =
+      document.getElementById("message-modal");
+
+    const modalBackdrop =
+      document.getElementById("modal-backdrop");
+
+
+    function openModal() {
+
+      messageModal.classList.add("active");
+
+      messageModal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+    }
+
+
+    function closeModal() {
+
+      messageModal.classList.remove("active");
+
+      messageModal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+    }
+
+
+    openMessage.addEventListener(
+      "click",
+      openModal
+    );
+
+
+    closeMessage.addEventListener(
+      "click",
+      closeModal
+    );
+
+
+    modalBackdrop.addEventListener(
+      "click",
+      closeModal
+    );
+
+
+    /* ESCAPE KEY */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape" &&
+          messageModal.classList.contains("active")
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       EMAILJS
+    ========================== */
+
     const form =
-      document.getElementById("contact-form");
+      document.getElementById(
+        "contact-form"
+      );
+
 
     const button =
-      document.getElementById("send-button");
+      document.getElementById(
+        "send-button"
+      );
+
 
     const sendText =
-      document.getElementById("send-text");
+      document.getElementById(
+        "send-text"
+      );
+
 
     const sendIcon =
-      document.getElementById("send-icon");
+      document.getElementById(
+        "send-icon"
+      );
+
 
     const status =
-      document.getElementById("form-status");
+      document.getElementById(
+        "form-status"
+      );
 
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener(
+      "submit",
+      function(event) {
 
-      event.preventDefault();
-
-
-      button.disabled = true;
-
-      sendText.textContent =
-        "Sending...";
-
-      sendIcon.textContent =
-        "⏳";
-
-      status.textContent = "";
-
-      status.className =
-        "form-status";
+        event.preventDefault();
 
 
-      /* SEND EMAIL */
+        /* DISABLE BUTTON */
 
-      emailjs.sendForm(
-        "service_mdvmj8k",
-        "template_1fz2w1p",
-        form
-      )
-
-      .then(function(response) {
-
-        console.log(
-          "EMAIL SENT:",
-          response.status,
-          response.text
-        );
-
-
-        status.textContent =
-          "✓ Message sent successfully!";
-
-        status.className =
-          "form-status success";
-
-
-        form.reset();
-
+        button.disabled = true;
 
         sendText.textContent =
-          "Message Sent";
+          "Sending...";
 
         sendIcon.textContent =
-          "✓";
-
-
-        setTimeout(function() {
-
-          sendText.textContent =
-            "Send Message";
-
-          sendIcon.textContent =
-            "➤";
-
-          button.disabled =
-            false;
-
-        }, 3000);
-
-      })
-
-
-      .catch(function(error) {
-
-        console.error(
-          "EMAILJS ERROR:",
-          error
-        );
-
+          "⏳";
 
         status.textContent =
-          "✕ Failed to send message. Please try again.";
+          "";
 
         status.className =
-          "form-status error";
+          "form-status";
 
 
-        sendText.textContent =
-          "Try Again";
+        /* SEND EMAIL */
 
-        sendIcon.textContent =
-          "↻";
+        emailjs.sendForm(
+          "service_mdvmj8k",
+          "template_1fz2w1p",
+          form
+        )
 
 
-        button.disabled =
-          false;
+        .then(
+          function(response) {
 
-      });
+            console.log(
+              "EMAILJS SUCCESS:",
+              response.status,
+              response.text
+            );
 
-    });
+
+            status.textContent =
+              "✓ Message sent successfully!";
+
+            status.className =
+              "form-status success";
+
+
+            form.reset();
+
+
+            sendText.textContent =
+              "Message Sent";
+
+            sendIcon.textContent =
+              "✓";
+
+
+            setTimeout(
+              function() {
+
+                closeModal();
+
+
+                sendText.textContent =
+                  "Send Message";
+
+                sendIcon.textContent =
+                  "➤";
+
+                button.disabled =
+                  false;
+
+                status.textContent =
+                  "";
+
+              },
+              2000
+            );
+
+          }
+        )
+
+
+        .catch(
+          function(error) {
+
+            console.error(
+              "EMAILJS ERROR:",
+              error
+            );
+
+
+            status.textContent =
+              "✕ Failed to send. Please try again.";
+
+            status.className =
+              "form-status error";
+
+
+            sendText.textContent =
+              "Try Again";
+
+            sendIcon.textContent =
+              "↻";
+
+
+            button.disabled =
+              false;
+
+          }
+        );
+
+      }
+    );
 
   </script>
 
 </body>
-
 </html>
