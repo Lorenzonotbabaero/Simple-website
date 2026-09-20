@@ -1,6 +1,6 @@
 /* =========================
    RESET
-   ========================= */
+========================= */
 
 * {
   margin: 0;
@@ -8,23 +8,14 @@
   box-sizing: border-box;
 }
 
-
-/* =========================
-   BODY
-   ========================= */
-
 html {
   scroll-behavior: smooth;
 }
 
-
 body {
   min-height: 100vh;
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   color: white;
 
@@ -36,7 +27,7 @@ body {
 
 /* =========================
    BACKGROUND VIDEO
-   ========================= */
+========================= */
 
 .background-video {
   position: fixed;
@@ -56,7 +47,7 @@ body {
 
 /* =========================
    VIDEO OVERLAY
-   ========================= */
+========================= */
 
 .video-overlay {
   position: fixed;
@@ -69,11 +60,13 @@ body {
   background:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.40),
-      rgba(0, 0, 0, 0.80)
+      rgba(0, 0, 0, 0.42),
+      rgba(0, 0, 0, 0.84)
     );
 
   backdrop-filter: blur(2px);
+
+  -webkit-backdrop-filter: blur(2px);
 
   z-index: -1;
 
@@ -82,8 +75,8 @@ body {
 
 
 /* =========================
-   CONTAINER
-   ========================= */
+   MAIN CONTAINER
+========================= */
 
 .container {
   position: relative;
@@ -91,17 +84,13 @@ body {
   z-index: 1;
 
   width: 90%;
-
   max-width: 600px;
 
   min-height: 100vh;
 
   margin: auto;
 
-  padding:
-    60px
-    25px
-    25px;
+  padding: 60px 25px 25px;
 
   display: flex;
 
@@ -111,14 +100,13 @@ body {
 
   text-align: center;
 
-  animation:
-    pageEnter 1s ease;
+  animation: pageEnter 1s ease;
 }
 
 
 /* =========================
    PROFILE
-   ========================= */
+========================= */
 
 .profile {
   width: 120px;
@@ -146,25 +134,21 @@ body {
     profileGradient 5s ease infinite;
 
   box-shadow:
-    0 0 25px rgba(255, 255, 255, 0.35),
-    0 0 60px rgba(255, 255, 255, 0.15);
-
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+    0 0 25px rgba(255,255,255,0.35),
+    0 0 60px rgba(255,255,255,0.15);
 
   overflow: hidden;
-}
 
+  transition: 0.4s ease;
+}
 
 .profile:hover {
   transform: scale(1.08);
 
   box-shadow:
-    0 0 35px rgba(255, 255, 255, 0.60),
-    0 0 80px rgba(255, 255, 255, 0.20);
+    0 0 35px rgba(255,255,255,0.6),
+    0 0 80px rgba(255,255,255,0.2);
 }
-
 
 .profile img {
   width: 100%;
@@ -176,14 +160,13 @@ body {
 
   border-radius: 50%;
 
-  border:
-    3px solid #050505;
+  border: 3px solid #050505;
 }
 
 
 /* =========================
    NAME
-   ========================= */
+========================= */
 
 h1 {
   font-size: 32px;
@@ -214,24 +197,23 @@ h1 {
 
 /* =========================
    DESCRIPTION
-   ========================= */
+========================= */
 
 .description {
-  color:
-    rgba(255, 255, 255, 0.78);
+  color: rgba(255,255,255,0.78);
 
   font-size: 16px;
 
   margin-bottom: 30px;
 
   text-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.70);
+    0 2px 10px rgba(0,0,0,0.7);
 }
 
 
 /* =========================
    SOCIALS
-   ========================= */
+========================= */
 
 .socials {
   width: 100%;
@@ -246,7 +228,7 @@ h1 {
 
 /* =========================
    SOCIAL BUTTON
-   ========================= */
+========================= */
 
 .social-btn {
   position: relative;
@@ -259,9 +241,7 @@ h1 {
 
   align-items: center;
 
-  padding:
-    0
-    18px;
+  padding: 0 18px;
 
   color: white;
 
@@ -270,12 +250,12 @@ h1 {
   background:
     linear-gradient(
       135deg,
-      rgba(35, 35, 35, 0.70),
-      rgba(10, 10, 10, 0.58)
+      rgba(35,35,35,0.72),
+      rgba(10,10,10,0.60)
     );
 
   border:
-    1px solid rgba(255, 255, 255, 0.20);
+    1px solid rgba(255,255,255,0.20);
 
   border-radius: 20px;
 
@@ -286,38 +266,26 @@ h1 {
   overflow: hidden;
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 10px 30px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.08);
 
-  transition:
-    transform 0.35s ease,
-    background 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: 0.35s ease;
 
   animation:
     socialAppear 0.7s ease both;
 }
 
-
-/* =========================
-   ANIMATION DELAYS
-   ========================= */
-
 .social-btn:nth-child(1) {
-  animation-delay: 0.20s;
+  animation-delay: 0.2s;
 }
-
 
 .social-btn:nth-child(2) {
   animation-delay: 0.35s;
 }
 
-
 .social-btn:nth-child(3) {
-  animation-delay: 0.50s;
+  animation-delay: 0.5s;
 }
-
 
 .social-btn:nth-child(4) {
   animation-delay: 0.65s;
@@ -325,8 +293,8 @@ h1 {
 
 
 /* =========================
-   SOCIAL LOGOS
-   ========================= */
+   SOCIAL ICONS
+========================= */
 
 .social-logo {
   width: 48px;
@@ -338,61 +306,50 @@ h1 {
 
   border-radius: 14px;
 
-  display: block;
-
   flex-shrink: 0;
 
   background:
-    rgba(255, 255, 255, 0.10);
+    rgba(255,255,255,0.10);
 
   border:
-    1px solid rgba(255, 255, 255, 0.20);
+    1px solid rgba(255,255,255,0.20);
 
   box-shadow:
-    inset 0 0 10px rgba(255, 255, 255, 0.08),
-    0 5px 15px rgba(0, 0, 0, 0.35);
+    inset 0 0 10px rgba(255,255,255,0.08),
+    0 5px 15px rgba(0,0,0,0.35);
 
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    background 0.35s ease;
+  transition: 0.35s ease;
 }
 
 
-/* =========================
-   TIKTOK
-   ========================= */
+/* TIKTOK */
 
 .tiktok .social-logo {
   box-shadow:
-    0 0 12px rgba(0, 242, 234, 0.25),
-    0 0 22px rgba(255, 0, 80, 0.18);
+    0 0 12px rgba(0,242,234,0.25),
+    0 0 22px rgba(255,0,80,0.18);
 }
 
 
-/* =========================
-   FACEBOOK
-   ========================= */
+/* FACEBOOK */
 
 .facebook .social-logo {
   box-shadow:
-    0 0 18px rgba(24, 119, 242, 0.35);
+    0 0 18px rgba(24,119,242,0.35);
 }
 
 
-/* =========================
-   INSTAGRAM
-   ========================= */
+/* INSTAGRAM */
 
 .instagram .social-logo {
   box-shadow:
-    0 0 18px rgba(225, 48, 108, 0.30);
+    0 0 18px rgba(225,48,108,0.30);
 }
 
 
 /* =========================
    MESSAGE ICON
-   ========================= */
+========================= */
 
 .message-icon {
   width: 48px;
@@ -407,262 +364,35 @@ h1 {
 
   border-radius: 14px;
 
-  font-size: 22px;
-
   background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.18),
-      rgba(255, 255, 255, 0.05)
-    );
+    rgba(255,255,255,0.10);
 
   border:
-    1px solid rgba(255, 255, 255, 0.22);
+    1px solid rgba(255,255,255,0.20);
 
   box-shadow:
-    0 0 18px rgba(255, 255, 255, 0.12);
+    0 0 18px rgba(255,255,255,0.12);
 
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+  overflow: hidden;
+
+  transition: 0.35s ease;
 }
 
-
-/* =========================
-   SOCIAL NAME
-   ========================= */
-
-.social-name {
-  flex: 1;
-
-  margin-left: 16px;
-
-  text-align: left;
-
-  font-size: 17px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.3px;
-}
-
-
-/* =========================
-   ARROW
-   ========================= */
-
-.arrow {
-  font-size: 24px;
-
-  opacity: 0.55;
-
-  transition:
-    transform 0.35s ease,
-    opacity 0.35s ease;
-}
-
-
-/* =========================
-   SHINE
-   ========================= */
-
-.social-btn::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-
-  left: -130%;
-
-  width: 70%;
-
+.message-icon img {
+  width: 100%;
   height: 100%;
 
-  background:
-    linear-gradient(
-      100deg,
-      transparent,
-      rgba(255, 255, 255, 0.20),
-      transparent
-    );
+  object-fit: contain;
 
-  transform:
-    skewX(-20deg);
+  padding: 6px;
 
-  transition:
-    left 0.7s ease;
-
-  pointer-events: none;
-}
-
-
-.social-btn:hover::before {
-  left: 140%;
+  display: block;
 }
 
 
 /* =========================
-   BUTTON HOVER
-   ========================= */
-
-.social-btn:hover {
-  transform:
-    translateY(-6px)
-    scale(1.02);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(50, 50, 50, 0.78),
-      rgba(15, 15, 15, 0.68)
-    );
-
-  border-color:
-    rgba(255, 255, 255, 0.38);
-
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.60),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-
-/* =========================
-   ICON HOVER
-   ========================= */
-
-.social-btn:hover .social-logo,
-.social-btn:hover .message-icon {
-  transform:
-    scale(1.12)
-    rotate(-4deg);
-
-  background:
-    rgba(255, 255, 255, 0.16);
-
-  border-color:
-    rgba(255, 255, 255, 0.40);
-
-  box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.18),
-    0 8px 20px rgba(0, 0, 0, 0.40);
-}
-
-
-/* =========================
-   ARROW HOVER
-   ========================= */
-
-.social-btn:hover .arrow {
-  opacity: 1;
-
-  transform:
-    translateX(8px);
-}
-
-
-/* =========================
-   TIKTOK GLOW
-   ========================= */
-
-.tiktok:hover {
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.60),
-    0 0 35px rgba(255, 0, 80, 0.22),
-    0 0 20px rgba(0, 242, 234, 0.12);
-}
-
-
-/* =========================
-   FACEBOOK GLOW
-   ========================= */
-
-.facebook:hover {
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.60),
-    0 0 35px rgba(24, 119, 242, 0.25);
-}
-
-
-/* =========================
-   INSTAGRAM GLOW
-   ========================= */
-
-.instagram:hover {
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.60),
-    0 0 35px rgba(225, 48, 108, 0.25);
-}
-
-
-/* =========================
-   MESSAGE BUTTON
-   ========================= */
-
-.message-btn {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(55, 55, 55, 0.75),
-      rgba(10, 10, 10, 0.65)
-    );
-}
-
-
-/* =========================
-   MESSAGE BOX
-   ========================= */
-
-.message-box {
-  width: 100%;
-
-  margin-top: 20px;
-
-  padding: 24px;
-
-  border-radius: 22px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(25, 25, 25, 0.80),
-      rgba(5, 5, 5, 0.68)
-    );
-
-  border:
-    1px solid rgba(255, 255, 255, 0.18);
-
-  backdrop-filter: blur(20px);
-
-  -webkit-backdrop-filter: blur(20px);
-
-  box-shadow:
-    0 15px 45px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-  scroll-margin-top: 20px;
-
-  animation:
-    messageAppear 0.6s ease;
-}
-
-
-/* =========================
-   MESSAGE HEADER
-   ========================= */
-
-.message-header {
-  display: flex;
-
-  align-items: center;
-
-  gap: 14px;
-
-  margin-bottom: 20px;
-
-  text-align: left;
-}
-
+   MESSAGE FORM ICON
+========================= */
 
 .message-title-icon {
   width: 48px;
@@ -677,22 +407,189 @@ h1 {
 
   border-radius: 15px;
 
-  font-size: 22px;
+  background:
+    rgba(255,255,255,0.10);
+
+  border:
+    1px solid rgba(255,255,255,0.20);
+
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.12);
+
+  overflow: hidden;
+
+  transition: 0.35s ease;
+}
+
+.message-title-icon img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  padding: 6px;
+
+  display: block;
+}
+
+
+/* =========================
+   SOCIAL TEXT
+========================= */
+
+.social-name {
+  flex: 1;
+
+  margin-left: 16px;
+
+  text-align: left;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   ARROW
+========================= */
+
+.arrow {
+  font-size: 24px;
+
+  opacity: 0.55;
+
+  transition: 0.35s ease;
+}
+
+
+/* =========================
+   SHINE
+========================= */
+
+.social-btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -130%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      100deg,
+      transparent,
+      rgba(255,255,255,0.20),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.7s ease;
+
+  pointer-events: none;
+}
+
+.social-btn:hover::before {
+  left: 140%;
+}
+
+
+/* =========================
+   BUTTON HOVER
+========================= */
+
+.social-btn:hover {
+  transform:
+    translateY(-6px)
+    scale(1.02);
 
   background:
     linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.18),
-      rgba(255, 255, 255, 0.05)
+      rgba(50,50,50,0.80),
+      rgba(15,15,15,0.70)
+    );
+
+  border-color:
+    rgba(255,255,255,0.38);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.60);
+}
+
+.social-btn:hover .social-logo,
+.social-btn:hover .message-icon,
+.social-btn:hover .message-title-icon {
+  transform:
+    scale(1.12)
+    rotate(-4deg);
+
+  background:
+    rgba(255,255,255,0.16);
+}
+
+.social-btn:hover .arrow {
+  opacity: 1;
+
+  transform:
+    translateX(8px);
+}
+
+
+/* =========================
+   MESSAGE FORM
+========================= */
+
+.message-box {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 24px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(25,25,25,0.82),
+      rgba(5,5,5,0.70)
     );
 
   border:
-    1px solid rgba(255, 255, 255, 0.20);
+    1px solid rgba(255,255,255,0.18);
+
+  backdrop-filter: blur(20px);
+
+  -webkit-backdrop-filter: blur(20px);
 
   box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.10);
+    0 15px 45px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+
+  scroll-margin-top: 20px;
 }
 
+
+/* =========================
+   MESSAGE HEADER
+========================= */
+
+.message-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+
+  text-align: left;
+}
 
 .message-header h2 {
   font-size: 20px;
@@ -700,18 +597,17 @@ h1 {
   margin-bottom: 4px;
 }
 
-
 .message-header p {
   font-size: 13px;
 
   color:
-    rgba(255, 255, 255, 0.55);
+    rgba(255,255,255,0.55);
 }
 
 
 /* =========================
-   FORM
-   ========================= */
+   INPUTS
+========================= */
 
 .message-box input,
 .message-box textarea {
@@ -728,10 +624,10 @@ h1 {
   font-size: 14px;
 
   background:
-    rgba(255, 255, 255, 0.07);
+    rgba(255,255,255,0.07);
 
   border:
-    1px solid rgba(255, 255, 255, 0.15);
+    1px solid rgba(255,255,255,0.15);
 
   border-radius: 14px;
 
@@ -739,36 +635,31 @@ h1 {
 
   resize: vertical;
 
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: 0.3s ease;
 }
-
 
 .message-box input::placeholder,
 .message-box textarea::placeholder {
   color:
-    rgba(255, 255, 255, 0.45);
+    rgba(255,255,255,0.45);
 }
-
 
 .message-box input:focus,
 .message-box textarea:focus {
   background:
-    rgba(255, 255, 255, 0.10);
+    rgba(255,255,255,0.10);
 
   border-color:
-    rgba(255, 255, 255, 0.45);
+    rgba(255,255,255,0.45);
 
   box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.08);
+    0 0 20px rgba(255,255,255,0.08);
 }
 
 
 /* =========================
    SEND BUTTON
-   ========================= */
+========================= */
 
 .send-btn {
   width: 100%;
@@ -790,7 +681,7 @@ h1 {
   cursor: pointer;
 
   border:
-    1px solid rgba(255, 255, 255, 0.25);
+    1px solid rgba(255,255,255,0.25);
 
   border-radius: 14px;
 
@@ -802,14 +693,10 @@ h1 {
     );
 
   box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.40);
+    0 8px 25px rgba(0,0,0,0.40);
 
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
+  transition: 0.3s ease;
 }
-
 
 .send-btn:hover {
   transform:
@@ -823,20 +710,54 @@ h1 {
     );
 
   box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.55),
-    0 0 20px rgba(255, 255, 255, 0.08);
+    0 12px 30px rgba(0,0,0,0.55),
+    0 0 20px rgba(255,255,255,0.08);
 }
-
 
 .send-btn:active {
   transform:
     scale(0.97);
 }
 
+.send-btn:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   FORM STATUS
+========================= */
+
+.form-status {
+  min-height: 20px;
+
+  margin-top: 14px;
+
+  font-size: 13px;
+
+  text-align: center;
+}
+
+.form-status.success {
+  color: #7cffb2;
+
+  text-shadow:
+    0 0 12px rgba(124,255,178,0.35);
+}
+
+.form-status.error {
+  color: #ff7777;
+
+  text-shadow:
+    0 0 12px rgba(255,80,80,0.30);
+}
+
 
 /* =========================
    FOOTER
-   ========================= */
+========================= */
 
 footer {
   margin-top: auto;
@@ -844,33 +765,26 @@ footer {
   padding-top: 50px;
 
   color:
-    rgba(255, 255, 255, 0.48);
+    rgba(255,255,255,0.48);
 
   font-size: 13px;
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.70);
 }
 
 
 /* =========================
    ANIMATIONS
-   ========================= */
+========================= */
 
 @keyframes pageEnter {
 
   from {
     opacity: 0;
-
-    transform:
-      translateY(25px);
+    transform: translateY(25px);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -879,34 +793,12 @@ footer {
 
   from {
     opacity: 0;
-
-    transform:
-      translateY(25px);
+    transform: translateY(25px);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-}
-
-
-@keyframes messageAppear {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(15px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -915,13 +807,11 @@ footer {
 
   0%,
   100% {
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
   50% {
-    transform:
-      translateY(-8px);
+    transform: translateY(-8px);
   }
 }
 
@@ -929,18 +819,15 @@ footer {
 @keyframes profileGradient {
 
   0% {
-    background-position:
-      0% 50%;
+    background-position: 0% 50%;
   }
 
   50% {
-    background-position:
-      100% 50%;
+    background-position: 100% 50%;
   }
 
   100% {
-    background-position:
-      0% 50%;
+    background-position: 0% 50%;
   }
 }
 
@@ -948,20 +835,18 @@ footer {
 @keyframes textShine {
 
   0% {
-    background-position:
-      0% center;
+    background-position: 0% center;
   }
 
   100% {
-    background-position:
-      200% center;
+    background-position: 200% center;
   }
 }
 
 
 /* =========================
    MOBILE
-   ========================= */
+========================= */
 
 @media (max-width: 500px) {
 
@@ -974,22 +859,18 @@ footer {
       20px;
   }
 
-
   .profile {
     width: 105px;
     height: 105px;
   }
 
-
   h1 {
     font-size: 26px;
   }
 
-
   .description {
     font-size: 15px;
   }
-
 
   .social-btn {
     min-height: 66px;
@@ -997,36 +878,26 @@ footer {
     border-radius: 18px;
   }
 
-
   .social-logo,
-  .message-icon {
+  .message-icon,
+  .message-title-icon {
     width: 46px;
     height: 46px;
   }
-
 
   .social-name {
     font-size: 15px;
   }
 
-
   .arrow {
     font-size: 22px;
   }
-
 
   .message-box {
     padding: 20px;
   }
 
-
   .message-header h2 {
     font-size: 18px;
   }
-
-
-  .message-title-icon {
-    width: 44px;
-    height: 44px;
-  }
-   }
+}
