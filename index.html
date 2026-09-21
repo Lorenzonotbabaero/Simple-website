@@ -410,7 +410,7 @@
 
     <footer>
 
-      © 2026 Lorenzo II C. Badilla
+      ALL RIGHTS RESERVED.
 
     </footer>
 
@@ -438,15 +438,13 @@
 
     /*
       Music volume
-      35%
     */
 
     music.volume = 0.35;
 
 
     /*
-      IMPORTANT:
-      Try to start music immediately
+      Try to play immediately
       when the website loads.
     */
 
@@ -456,16 +454,8 @@
 
         music.play().catch(function(error) {
 
-          /*
-            Chrome/Android may block
-            unmuted autoplay.
-
-            If blocked, the browser
-            itself requires user interaction.
-          */
-
           console.log(
-            "Autoplay blocked by browser:",
+            "Browser blocked autoplay:",
             error
           );
 
@@ -764,4 +754,4 @@
 
 </body>
 
-</html>
+  </html>
