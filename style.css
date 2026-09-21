@@ -30,10 +30,6 @@ body {
 }
 
 
-/* =========================
-   MODAL SCROLL LOCK
-========================= */
-
 body.modal-open {
   overflow: hidden;
 }
@@ -310,6 +306,10 @@ h1 {
 }
 
 
+/* =========================
+   BUTTON ANIMATION
+========================= */
+
 .social-btn:nth-child(1) {
   animation-delay: 0.2s;
 }
@@ -331,89 +331,10 @@ h1 {
 
 
 /* =========================
-   FONT AWESOME ICON
+   UNIFIED ICON STYLE
 ========================= */
 
-.social-icon {
-  width: 48px;
-
-  height: 48px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  border-radius: 14px;
-
-  font-size: 25px;
-
-  background:
-    rgba(255,255,255,0.10);
-
-  border:
-    1px solid rgba(255,255,255,0.20);
-
-  box-shadow:
-    inset 0 0 10px rgba(255,255,255,0.08),
-    0 5px 15px rgba(0,0,0,0.35);
-
-  transition: 0.35s ease;
-}
-
-
-/* =========================
-   TIKTOK
-========================= */
-
-.tiktok .social-icon {
-  color: white;
-
-  text-shadow:
-    -2px -2px 0 #00f2ea,
-    2px 2px 0 #ff0050;
-}
-
-
-/* =========================
-   FACEBOOK
-========================= */
-
-.facebook .social-icon {
-  color: #1877f2;
-
-  text-shadow:
-    0 0 15px rgba(24,119,242,0.65);
-}
-
-
-/* =========================
-   INSTAGRAM
-========================= */
-
-.instagram .social-icon {
-  color: white;
-
-  background:
-    linear-gradient(
-      135deg,
-      #833ab4,
-      #fd1d1d,
-      #fcb045
-    );
-
-  text-shadow:
-    0 0 8px rgba(255,255,255,0.5);
-}
-
-
-/* =========================
-   MESSAGE ICON
-========================= */
-
+.social-icon,
 .message-icon {
   width: 48px;
 
@@ -436,24 +357,41 @@ h1 {
     1px solid rgba(255,255,255,0.20);
 
   box-shadow:
-    0 0 18px rgba(255,255,255,0.12);
-
-  overflow: hidden;
+    inset 0 0 10px rgba(255,255,255,0.08),
+    0 5px 15px rgba(0,0,0,0.35);
 
   transition: 0.35s ease;
 }
 
 
-.message-icon img {
-  width: 100%;
+/* =========================
+   ALL ICONS WHITE
+========================= */
 
-  height: 100%;
+.social-icon i,
+.message-icon i {
+  font-size: 24px;
 
-  padding: 6px;
+  color: #ffffff;
 
-  object-fit: contain;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.20);
+}
 
-  display: block;
+
+/* =========================
+   REMOVE OLD ICON COLORS
+========================= */
+
+.tiktok .social-icon,
+.facebook .social-icon,
+.instagram .social-icon {
+  color: white;
+
+  background:
+    rgba(255,255,255,0.10);
+
+  text-shadow: none;
 }
 
 
@@ -555,6 +493,15 @@ h1 {
   transform:
     scale(1.12)
     rotate(-4deg);
+
+  background:
+    rgba(255,255,255,0.16);
+
+  border-color:
+    rgba(255,255,255,0.35);
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,0.12);
 }
 
 
@@ -685,7 +632,7 @@ h1 {
 
 
 /* =========================
-   CLOSE
+   CLOSE BUTTON
 ========================= */
 
 .close-message {
@@ -785,14 +732,10 @@ h1 {
 }
 
 
-.message-title-icon img {
-  width: 100%;
+.message-title-icon i {
+  font-size: 24px;
 
-  height: 100%;
-
-  padding: 7px;
-
-  object-fit: contain;
+  color: white;
 }
 
 
@@ -993,6 +936,8 @@ footer {
     rgba(255,255,255,0.48);
 
   font-size: 13px;
+
+  text-align: center;
 }
 
 
@@ -1137,7 +1082,8 @@ footer {
   }
 
 
-  .social-icon {
+  .social-icon i,
+  .message-icon i {
     font-size: 23px;
   }
 
