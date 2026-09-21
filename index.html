@@ -10,44 +10,24 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>About me!</title>
+  <title>ABOUT ME!</title>
 
-
-  <!-- =========================
-       FONT AWESOME
-  ========================== -->
-
+  <!-- FONT AWESOME -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   >
 
-
-  <!-- =========================
-       CSS
-  ========================== -->
-
+  <!-- CSS -->
   <link
     rel="stylesheet"
     href="style.css"
   >
 
-
-  <!-- =========================
-       EMAILJS
-  ========================== -->
-
+  <!-- EMAILJS -->
   <script
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
   ></script>
-
-  <script>
-
-    emailjs.init({
-      publicKey: "yWCbXVy9EpRv6Dt_c"
-    });
-
-  </script>
 
 </head>
 
@@ -88,21 +68,179 @@
 
   </video>
 
-
   <div class="video-overlay"></div>
 
 
+  <!-- =========================
+       THREE DOT BUTTON
+  ========================== -->
+
+  <button
+    class="menu-button"
+    id="menu-button"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
+
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+  </button>
+
 
   <!-- =========================
-       MAIN
-  ========================= -->
+       SIDE MENU
+  ========================== -->
 
-  <main class="container">
+  <div
+    class="side-menu"
+    id="side-menu"
+    aria-hidden="true"
+  >
+
+    <div
+      class="menu-backdrop"
+      id="menu-backdrop"
+    ></div>
 
 
-    <!-- =========================
-         PROFILE
-    ========================== -->
+    <aside class="menu-panel">
+
+
+      <!-- MENU HEADER -->
+
+      <div class="menu-header">
+
+        <div class="menu-logo">
+
+          <i class="fa-solid fa-user"></i>
+
+        </div>
+
+
+        <div class="menu-heading">
+
+          <h2>
+            Lorenzo
+          </h2>
+
+          <p>
+            Personal Menu
+          </p>
+
+        </div>
+
+
+        <button
+          class="menu-close"
+          id="menu-close"
+          type="button"
+          aria-label="Close menu"
+        >
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+      </div>
+
+
+      <!-- MENU LINKS -->
+
+      <nav class="menu-links">
+
+
+        <!-- HOME -->
+
+        <button
+          class="menu-link"
+          type="button"
+          data-section="home"
+        >
+
+          <span class="menu-link-icon">
+            <i class="fa-solid fa-house"></i>
+          </span>
+
+          <span>
+            Home
+          </span>
+
+          <i class="fa-solid fa-chevron-right menu-arrow"></i>
+
+        </button>
+
+
+        <!-- ABOUT -->
+
+        <button
+          class="menu-link"
+          type="button"
+          data-section="about"
+        >
+
+          <span class="menu-link-icon">
+            <i class="fa-solid fa-user"></i>
+          </span>
+
+          <span>
+            About Me
+          </span>
+
+          <i class="fa-solid fa-chevron-right menu-arrow"></i>
+
+        </button>
+
+
+        <!-- SOCIAL -->
+
+        <button
+          class="menu-link"
+          type="button"
+          data-section="social"
+        >
+
+          <span class="menu-link-icon">
+            <i class="fa-solid fa-share-nodes"></i>
+          </span>
+
+          <span>
+            Social Media
+          </span>
+
+          <i class="fa-solid fa-chevron-right menu-arrow"></i>
+
+        </button>
+
+
+      </nav>
+
+
+      <div class="menu-footer">
+
+        <p>
+          © 2026 ALL RIGHT RESERVED.
+        </p>
+
+      </div>
+
+
+    </aside>
+
+  </div>
+
+
+  <!-- =========================
+       MAIN HOME
+  ========================== -->
+
+  <main
+    class="container"
+    id="home"
+  >
+
+
+    <!-- PROFILE -->
 
     <div class="profile">
 
@@ -114,10 +252,7 @@
     </div>
 
 
-
-    <!-- =========================
-         NAME
-    ========================== -->
+    <!-- NAME -->
 
     <h1>
       Lorenzo II C. Badilla
@@ -129,12 +264,14 @@
     </p>
 
 
-
     <!-- =========================
          SOCIAL BUTTONS
     ========================== -->
 
-    <div class="socials">
+    <div
+      class="socials"
+      id="social"
+    >
 
 
       <!-- TIKTOK -->
@@ -152,18 +289,15 @@
 
         </span>
 
-
         <span class="social-name">
           TikTok
         </span>
-
 
         <span class="arrow">
           →
         </span>
 
       </a>
-
 
 
       <!-- FACEBOOK -->
@@ -181,18 +315,15 @@
 
         </span>
 
-
         <span class="social-name">
           Facebook
         </span>
-
 
         <span class="arrow">
           →
         </span>
 
       </a>
-
 
 
       <!-- INSTAGRAM -->
@@ -210,11 +341,9 @@
 
         </span>
 
-
         <span class="social-name">
           Instagram
         </span>
-
 
         <span class="arrow">
           →
@@ -223,8 +352,7 @@
       </a>
 
 
-
-      <!-- SEND MESSAGE -->
+      <!-- MESSAGE -->
 
       <button
         type="button"
@@ -238,11 +366,9 @@
 
         </span>
 
-
         <span class="social-name">
           Send a Message
         </span>
-
 
         <span class="arrow">
           →
@@ -253,6 +379,192 @@
 
     </div>
 
+
+    <!-- =========================
+         ABOUT MODAL
+    ========================== -->
+
+    <div
+      class="info-modal"
+      id="about-modal"
+      aria-hidden="true"
+    >
+
+      <div
+        class="info-backdrop"
+        data-close-info
+      ></div>
+
+
+      <section class="info-box">
+
+        <button
+          class="info-close"
+          type="button"
+          data-close-info
+          aria-label="Close"
+        >
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="info-icon">
+
+          <i class="fa-solid fa-user"></i>
+
+        </div>
+
+
+        <h2>
+          About Me
+        </h2>
+
+
+        <p class="info-name">
+          Lorenzo II C. Badilla
+        </p>
+
+
+        <p class="info-text">
+          Welcome to my personal website!
+          This is my space on the internet
+          where you can find my social media,
+          projects, and ways to contact me.
+        </p>
+
+
+        <div class="info-tags">
+
+          <span>
+            <i class="fa-solid fa-code"></i>
+            Creator
+          </span>
+
+          <span>
+            <i class="fa-solid fa-gamepad"></i>
+            Gamer
+          </span>
+
+          <span>
+            <i class="fa-solid fa-laptop"></i>
+            Tech
+          </span>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- =========================
+         SOCIAL MEDIA MODAL
+    ========================== -->
+
+    <div
+      class="info-modal"
+      id="social-modal"
+      aria-hidden="true"
+    >
+
+      <div
+        class="info-backdrop"
+        data-close-info
+      ></div>
+
+
+      <section class="info-box">
+
+        <button
+          class="info-close"
+          type="button"
+          data-close-info
+          aria-label="Close"
+        >
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="info-icon">
+
+          <i class="fa-solid fa-share-nodes"></i>
+
+        </div>
+
+
+        <h2>
+          Social Media
+        </h2>
+
+
+        <p class="info-text">
+          Follow me on my social media accounts.
+        </p>
+
+
+        <div class="social-mini-links">
+
+
+          <a
+            href="https://www.tiktok.com/@loren.zoofficial"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <i class="fa-brands fa-tiktok"></i>
+
+            <span>
+              TikTok
+            </span>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </a>
+
+
+          <a
+            href="https://www.facebook.com/share/1JCAwrrqA8/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <i class="fa-brands fa-facebook"></i>
+
+            <span>
+              Facebook
+            </span>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </a>
+
+
+          <a
+            href="https://www.instagram.com/lor.zxa?stkn=OGl2Yjl0MzRxaHFq"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <span>
+              Instagram
+            </span>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </a>
+
+
+        </div>
+
+      </section>
+
+    </div>
 
 
     <!-- =========================
@@ -265,22 +577,14 @@
       aria-hidden="true"
     >
 
-
-      <!-- BACKDROP -->
-
       <div
         class="modal-backdrop"
         id="modal-backdrop"
       ></div>
 
 
-
-      <!-- MESSAGE BOX -->
-
       <section class="message-box">
 
-
-        <!-- CLOSE -->
 
         <button
           type="button"
@@ -294,11 +598,7 @@
         </button>
 
 
-
-        <!-- HEADER -->
-
         <div class="message-header">
-
 
           <div class="message-title-icon">
 
@@ -313,24 +613,19 @@
               Send a Message
             </h2>
 
-
             <p>
               I'd love to hear from you.
             </p>
 
           </div>
 
-
         </div>
 
 
-
-        <!-- FORM -->
+        <!-- CONTACT FORM -->
 
         <form id="contact-form">
 
-
-          <!-- NAME -->
 
           <input
             type="text"
@@ -341,9 +636,6 @@
           >
 
 
-
-          <!-- EMAIL -->
-
           <input
             type="email"
             name="email"
@@ -353,9 +645,6 @@
           >
 
 
-
-          <!-- MESSAGE -->
-
           <textarea
             name="message"
             placeholder="Write your message..."
@@ -363,9 +652,6 @@
             required
           ></textarea>
 
-
-
-          <!-- SEND -->
 
           <button
             type="submit"
@@ -377,7 +663,6 @@
               Send Message
             </span>
 
-
             <span id="send-icon">
               ➤
             </span>
@@ -388,9 +673,6 @@
         </form>
 
 
-
-        <!-- STATUS -->
-
         <p
           id="form-status"
           class="form-status"
@@ -399,9 +681,7 @@
 
       </section>
 
-
     </div>
-
 
 
     <!-- =========================
@@ -410,7 +690,9 @@
 
     <footer>
 
-      <p>&copy; 2026 ALL RIGHT RESERVED.</p>
+      <p>
+        &copy; 2026 ALL RIGHT RESERVED.
+      </p>
 
     </footer>
 
@@ -418,336 +700,13 @@
   </main>
 
 
-
   <!-- =========================
-       JAVASCRIPT
+       SEPARATE JAVASCRIPT
   ========================== -->
 
-  <script>
-
-
-    /* =================================
-       BACKGROUND MUSIC
-    ================================= */
-
-    const music =
-      document.getElementById(
-        "background-music"
-      );
-
-
-    music.volume = 0.35;
-
-
-    /*
-      Try to play immediately
-      when the website loads.
-    */
-
-    window.addEventListener(
-      "load",
-      function() {
-
-        music.play().catch(function(error) {
-
-          console.log(
-            "Browser blocked autoplay:",
-            error
-          );
-
-        });
-
-      }
-    );
-
-
-
-    /* =================================
-       MESSAGE MODAL
-    ================================= */
-
-    const openMessage =
-      document.getElementById(
-        "open-message"
-      );
-
-
-    const closeMessage =
-      document.getElementById(
-        "close-message"
-      );
-
-
-    const messageModal =
-      document.getElementById(
-        "message-modal"
-      );
-
-
-    const modalBackdrop =
-      document.getElementById(
-        "modal-backdrop"
-      );
-
-
-
-    /* =================================
-       OPEN MODAL
-    ================================= */
-
-    function openModal() {
-
-      messageModal.classList.add(
-        "active"
-      );
-
-
-      messageModal.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-
-      document.body.classList.add(
-        "modal-open"
-      );
-
-    }
-
-
-
-    /* =================================
-       CLOSE MODAL
-    ================================= */
-
-    function closeModal() {
-
-      messageModal.classList.remove(
-        "active"
-      );
-
-
-      messageModal.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-
-      document.body.classList.remove(
-        "modal-open"
-      );
-
-    }
-
-
-
-    openMessage.addEventListener(
-      "click",
-      openModal
-    );
-
-
-    closeMessage.addEventListener(
-      "click",
-      closeModal
-    );
-
-
-    modalBackdrop.addEventListener(
-      "click",
-      closeModal
-    );
-
-
-
-    /* =================================
-       ESC KEY
-    ================================= */
-
-    document.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (
-          event.key === "Escape" &&
-          messageModal.classList.contains("active")
-        ) {
-
-          closeModal();
-
-        }
-
-      }
-    );
-
-
-
-    /* =================================
-       EMAILJS
-    ================================= */
-
-    const form =
-      document.getElementById(
-        "contact-form"
-      );
-
-
-    const button =
-      document.getElementById(
-        "send-button"
-      );
-
-
-    const sendText =
-      document.getElementById(
-        "send-text"
-      );
-
-
-    const sendIcon =
-      document.getElementById(
-        "send-icon"
-      );
-
-
-    const status =
-      document.getElementById(
-        "form-status"
-      );
-
-
-
-    form.addEventListener(
-      "submit",
-      function(event) {
-
-        event.preventDefault();
-
-
-        button.disabled = true;
-
-
-        sendText.textContent =
-          "Sending...";
-
-
-        sendIcon.textContent =
-          "⏳";
-
-
-        status.textContent =
-          "";
-
-
-        status.className =
-          "form-status";
-
-
-
-        emailjs.sendForm(
-
-          "service_mdvmj8k",
-
-          "template_1fz2w1p",
-
-          form
-
-        )
-
-
-        .then(function(response) {
-
-          console.log(
-            "EmailJS Success:",
-            response.status,
-            response.text
-          );
-
-
-          status.textContent =
-            "✓ Message sent successfully!";
-
-
-          status.className =
-            "form-status success";
-
-
-          form.reset();
-
-
-          sendText.textContent =
-            "Message Sent";
-
-
-          sendIcon.textContent =
-            "✓";
-
-
-          setTimeout(
-            function() {
-
-              closeModal();
-
-
-              sendText.textContent =
-                "Send Message";
-
-
-              sendIcon.textContent =
-                "➤";
-
-
-              button.disabled =
-                false;
-
-
-              status.textContent =
-                "";
-
-            },
-            2000
-          );
-
-
-        })
-
-
-        .catch(function(error) {
-
-          console.error(
-            "EmailJS Error:",
-            error
-          );
-
-
-          status.textContent =
-            "✕ Failed to send. Please try again.";
-
-
-          status.className =
-            "form-status error";
-
-
-          sendText.textContent =
-            "Try Again";
-
-
-          sendIcon.textContent =
-            "↻";
-
-
-          button.disabled =
-            false;
-
-        });
-
-      }
-    );
-
-
-  </script>
+  <script src="script.js"></script>
 
 
 </body>
 
-  </html>
+        </html>
