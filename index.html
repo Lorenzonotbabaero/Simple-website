@@ -62,6 +62,7 @@
   <audio
     id="background-music"
     src="Files/musicB.mp3"
+    autoplay
     loop
     preload="auto"
   ></audio>
@@ -233,10 +234,7 @@
 
         <span class="message-icon">
 
-          <img
-            src="Files/message.png"
-            alt="Message"
-          >
+          <i class="fa-solid fa-envelope"></i>
 
         </span>
 
@@ -304,10 +302,7 @@
 
           <div class="message-title-icon">
 
-            <img
-              src="Files/message.png"
-              alt="Message"
-            >
+            <i class="fa-solid fa-envelope"></i>
 
           </div>
 
@@ -441,59 +436,42 @@
       );
 
 
-    // Volume: 35%
+    /*
+      Music volume
+      35%
+    */
+
     music.volume = 0.35;
 
 
-    // Try automatic playback
-    function startMusic() {
-
-      music.play().catch(function() {
-
-        // Browser blocked autoplay.
-        // First interaction will start it.
-
-      });
-
-    }
-
+    /*
+      IMPORTANT:
+      Try to start music immediately
+      when the website loads.
+    */
 
     window.addEventListener(
       "load",
-      startMusic
-    );
+      function() {
 
+        music.play().catch(function(error) {
 
-    // Start music after first interaction
-    function startMusicAfterInteraction() {
+          /*
+            Chrome/Android may block
+            unmuted autoplay.
 
-      if (music.paused) {
+            If blocked, the browser
+            itself requires user interaction.
+          */
 
-        music.play().catch(function() {});
+          console.log(
+            "Autoplay blocked by browser:",
+            error
+          );
+
+        });
 
       }
-
-    }
-
-
-    document.addEventListener(
-      "click",
-      startMusicAfterInteraction,
-      { once: true }
-    );
-
-
-    document.addEventListener(
-      "touchstart",
-      startMusicAfterInteraction,
-      { once: true }
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      startMusicAfterInteraction,
-      { once: true }
     );
 
 
@@ -527,7 +505,9 @@
 
 
 
-    // OPEN
+    /* =================================
+       OPEN MODAL
+    ================================= */
 
     function openModal() {
 
@@ -550,7 +530,9 @@
 
 
 
-    // CLOSE
+    /* =================================
+       CLOSE MODAL
+    ================================= */
 
     function closeModal() {
 
@@ -592,7 +574,9 @@
 
 
 
-    // ESC KEY
+    /* =================================
+       ESC KEY
+    ================================= */
 
     document.addEventListener(
       "keydown",
@@ -654,8 +638,6 @@
         event.preventDefault();
 
 
-        // Disable button
-
         button.disabled = true;
 
 
@@ -676,8 +658,6 @@
 
 
 
-        // SEND EMAIL
-
         emailjs.sendForm(
 
           "service_mdvmj8k",
@@ -690,7 +670,6 @@
 
 
         .then(function(response) {
-
 
           console.log(
             "EmailJS Success:",
@@ -717,9 +696,6 @@
           sendIcon.textContent =
             "✓";
 
-
-
-          // Close after 2 seconds
 
           setTimeout(
             function() {
@@ -752,7 +728,6 @@
 
         .catch(function(error) {
 
-
           console.error(
             "EmailJS Error:",
             error
@@ -779,7 +754,6 @@
             false;
 
         });
-
 
       }
     );
