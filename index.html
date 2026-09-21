@@ -2,24 +2,70 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Lorenzo II C. Badilla</title>
 
-  <link rel="stylesheet" href="style.css">
 
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- =========================
+       FONT AWESOME
+  ========================== -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+
+  <!-- =========================
+       CSS
+  ========================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <!-- =========================
+       EMAILJS
+  ========================== -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  ></script>
 
   <script>
+
     emailjs.init({
       publicKey: "yWCbXVy9EpRv6Dt_c"
     });
+
   </script>
+
 </head>
 
+
 <body>
+
+
+  <!-- =========================
+       BACKGROUND MUSIC
+  ========================== -->
+
+  <audio
+    id="background-music"
+    src="Files/musicB.mp3"
+    loop
+    preload="auto"
+  ></audio>
+
 
   <!-- =========================
        BACKGROUND VIDEO
@@ -33,33 +79,54 @@
     playsinline
     preload="auto"
   >
-    <source src="Files/an.mp4" type="video/mp4">
+
+    <source
+      src="Files/an.mp4"
+      type="video/mp4"
+    >
+
   </video>
+
 
   <div class="video-overlay"></div>
 
 
+
   <!-- =========================
-       MAIN CONTENT
+       MAIN
   ========================== -->
 
   <main class="container">
 
-    <!-- PROFILE -->
+
+    <!-- =========================
+         PROFILE
+    ========================== -->
+
     <div class="profile">
+
       <img
         src="Files/photo.jpeg"
         alt="Lorenzo II C. Badilla"
       >
+
     </div>
 
 
-    <!-- NAME -->
-    <h1>Lorenzo II C. Badilla</h1>
+
+    <!-- =========================
+         NAME
+    ========================== -->
+
+    <h1>
+      Lorenzo II C. Badilla
+    </h1>
+
 
     <p class="description">
       Welcome to my personal website.
     </p>
+
 
 
     <!-- =========================
@@ -78,21 +145,24 @@
         rel="noopener noreferrer"
       >
 
-        <img
-          src="Files/tiktok.png"
-          alt="TikTok"
-          class="social-logo"
-        >
+        <span class="social-icon">
+
+          <i class="fa-brands fa-tiktok"></i>
+
+        </span>
+
 
         <span class="social-name">
           TikTok
         </span>
+
 
         <span class="arrow">
           →
         </span>
 
       </a>
+
 
 
       <!-- FACEBOOK -->
@@ -104,21 +174,24 @@
         rel="noopener noreferrer"
       >
 
-        <img
-          src="Files/facebook.png"
-          alt="Facebook"
-          class="social-logo"
-        >
+        <span class="social-icon">
+
+          <i class="fa-brands fa-facebook"></i>
+
+        </span>
+
 
         <span class="social-name">
           Facebook
         </span>
+
 
         <span class="arrow">
           →
         </span>
 
       </a>
+
 
 
       <!-- INSTAGRAM -->
@@ -130,21 +203,24 @@
         rel="noopener noreferrer"
       >
 
-        <img
-          src="Files/instagram.jpeg"
-          alt="Instagram"
-          class="social-logo"
-        >
+        <span class="social-icon">
+
+          <i class="fa-brands fa-instagram"></i>
+
+        </span>
+
 
         <span class="social-name">
           Instagram
         </span>
+
 
         <span class="arrow">
           →
         </span>
 
       </a>
+
 
 
       <!-- SEND MESSAGE -->
@@ -164,9 +240,11 @@
 
         </span>
 
+
         <span class="social-name">
           Send a Message
         </span>
+
 
         <span class="arrow">
           →
@@ -174,7 +252,9 @@
 
       </button>
 
+
     </div>
+
 
 
     <!-- =========================
@@ -187,7 +267,8 @@
       aria-hidden="true"
     >
 
-      <!-- DARK BACKDROP -->
+
+      <!-- BACKDROP -->
 
       <div
         class="modal-backdrop"
@@ -195,12 +276,13 @@
       ></div>
 
 
-      <!-- MESSAGE CARD -->
+
+      <!-- MESSAGE BOX -->
 
       <section class="message-box">
 
 
-        <!-- CLOSE BUTTON -->
+        <!-- CLOSE -->
 
         <button
           type="button"
@@ -208,13 +290,17 @@
           id="close-message"
           aria-label="Close"
         >
+
           ×
+
         </button>
+
 
 
         <!-- HEADER -->
 
         <div class="message-header">
+
 
           <div class="message-title-icon">
 
@@ -232,16 +318,19 @@
               Send a Message
             </h2>
 
+
             <p>
               I'd love to hear from you.
             </p>
 
           </div>
 
+
         </div>
 
 
-        <!-- CONTACT FORM -->
+
+        <!-- FORM -->
 
         <form id="contact-form">
 
@@ -257,6 +346,7 @@
           >
 
 
+
           <!-- EMAIL -->
 
           <input
@@ -268,6 +358,7 @@
           >
 
 
+
           <!-- MESSAGE -->
 
           <textarea
@@ -276,6 +367,7 @@
             rows="5"
             required
           ></textarea>
+
 
 
           <!-- SEND -->
@@ -290,13 +382,16 @@
               Send Message
             </span>
 
+
             <span id="send-icon">
               ➤
             </span>
 
           </button>
 
+
         </form>
+
 
 
         <!-- STATUS -->
@@ -306,18 +401,27 @@
           class="form-status"
         ></p>
 
+
       </section>
+
 
     </div>
 
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
-      © 2026 ALL RIGHT RESERVED
+
+      © 2026 Lorenzo II C. Badilla
+
     </footer>
 
+
   </main>
+
 
 
   <!-- =========================
@@ -326,31 +430,117 @@
 
   <script>
 
-    /* =========================
+
+    /* =================================
+       BACKGROUND MUSIC
+    ================================= */
+
+    const music =
+      document.getElementById(
+        "background-music"
+      );
+
+
+    // Volume: 35%
+    music.volume = 0.35;
+
+
+    // Try automatic playback
+    function startMusic() {
+
+      music.play().catch(function() {
+
+        // Browser blocked autoplay.
+        // First interaction will start it.
+
+      });
+
+    }
+
+
+    window.addEventListener(
+      "load",
+      startMusic
+    );
+
+
+    // Start music after first interaction
+    function startMusicAfterInteraction() {
+
+      if (music.paused) {
+
+        music.play().catch(function() {});
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "click",
+      startMusicAfterInteraction,
+      { once: true }
+    );
+
+
+    document.addEventListener(
+      "touchstart",
+      startMusicAfterInteraction,
+      { once: true }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      startMusicAfterInteraction,
+      { once: true }
+    );
+
+
+
+    /* =================================
        MESSAGE MODAL
-    ========================== */
+    ================================= */
 
     const openMessage =
-      document.getElementById("open-message");
+      document.getElementById(
+        "open-message"
+      );
+
 
     const closeMessage =
-      document.getElementById("close-message");
+      document.getElementById(
+        "close-message"
+      );
+
 
     const messageModal =
-      document.getElementById("message-modal");
+      document.getElementById(
+        "message-modal"
+      );
+
 
     const modalBackdrop =
-      document.getElementById("modal-backdrop");
+      document.getElementById(
+        "modal-backdrop"
+      );
 
+
+
+    // OPEN
 
     function openModal() {
 
-      messageModal.classList.add("active");
+      messageModal.classList.add(
+        "active"
+      );
+
 
       messageModal.setAttribute(
         "aria-hidden",
         "false"
       );
+
 
       document.body.classList.add(
         "modal-open"
@@ -359,20 +549,28 @@
     }
 
 
+
+    // CLOSE
+
     function closeModal() {
 
-      messageModal.classList.remove("active");
+      messageModal.classList.remove(
+        "active"
+      );
+
 
       messageModal.setAttribute(
         "aria-hidden",
         "true"
       );
 
+
       document.body.classList.remove(
         "modal-open"
       );
 
     }
+
 
 
     openMessage.addEventListener(
@@ -393,7 +591,8 @@
     );
 
 
-    /* ESCAPE KEY */
+
+    // ESC KEY
 
     document.addEventListener(
       "keydown",
@@ -412,9 +611,10 @@
     );
 
 
-    /* =========================
+
+    /* =================================
        EMAILJS
-    ========================== */
+    ================================= */
 
     const form =
       document.getElementById(
@@ -446,6 +646,7 @@
       );
 
 
+
     form.addEventListener(
       "submit",
       function(event) {
@@ -453,118 +654,140 @@
         event.preventDefault();
 
 
-        /* DISABLE BUTTON */
+        // Disable button
 
         button.disabled = true;
+
 
         sendText.textContent =
           "Sending...";
 
+
         sendIcon.textContent =
           "⏳";
 
+
         status.textContent =
           "";
+
 
         status.className =
           "form-status";
 
 
-        /* SEND EMAIL */
+
+        // SEND EMAIL
 
         emailjs.sendForm(
+
           "service_mdvmj8k",
+
           "template_1fz2w1p",
+
           form
+
         )
 
 
-        .then(
-          function(response) {
-
-            console.log(
-              "EMAILJS SUCCESS:",
-              response.status,
-              response.text
-            );
+        .then(function(response) {
 
 
-            status.textContent =
-              "✓ Message sent successfully!";
-
-            status.className =
-              "form-status success";
-
-
-            form.reset();
+          console.log(
+            "EmailJS Success:",
+            response.status,
+            response.text
+          );
 
 
-            sendText.textContent =
-              "Message Sent";
-
-            sendIcon.textContent =
-              "✓";
+          status.textContent =
+            "✓ Message sent successfully!";
 
 
-            setTimeout(
-              function() {
-
-                closeModal();
+          status.className =
+            "form-status success";
 
 
-                sendText.textContent =
-                  "Send Message";
-
-                sendIcon.textContent =
-                  "➤";
-
-                button.disabled =
-                  false;
-
-                status.textContent =
-                  "";
-
-              },
-              2000
-            );
-
-          }
-        )
+          form.reset();
 
 
-        .catch(
-          function(error) {
-
-            console.error(
-              "EMAILJS ERROR:",
-              error
-            );
+          sendText.textContent =
+            "Message Sent";
 
 
-            status.textContent =
-              "✕ Failed to send. Please try again.";
-
-            status.className =
-              "form-status error";
+          sendIcon.textContent =
+            "✓";
 
 
-            sendText.textContent =
-              "Try Again";
 
-            sendIcon.textContent =
-              "↻";
+          // Close after 2 seconds
+
+          setTimeout(
+            function() {
+
+              closeModal();
 
 
-            button.disabled =
-              false;
+              sendText.textContent =
+                "Send Message";
 
-          }
-        );
+
+              sendIcon.textContent =
+                "➤";
+
+
+              button.disabled =
+                false;
+
+
+              status.textContent =
+                "";
+
+            },
+            2000
+          );
+
+
+        })
+
+
+        .catch(function(error) {
+
+
+          console.error(
+            "EmailJS Error:",
+            error
+          );
+
+
+          status.textContent =
+            "✕ Failed to send. Please try again.";
+
+
+          status.className =
+            "form-status error";
+
+
+          sendText.textContent =
+            "Try Again";
+
+
+          sendIcon.textContent =
+            "↻";
+
+
+          button.disabled =
+            false;
+
+        });
+
 
       }
     );
 
+
   </script>
 
+
 </body>
+
 </html>
