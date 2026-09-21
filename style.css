@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================
    RESET
-========================= */
+========================================= */
 
 * {
   margin: 0;
@@ -8,40 +8,25 @@
   box-sizing: border-box;
 }
 
-
 html {
   scroll-behavior: smooth;
 }
 
-
 body {
   min-height: 100vh;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  color: white;
-
-  overflow-x: hidden;
-
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
   background: #000;
+  overflow-x: hidden;
 }
 
 
-body.modal-open {
-  overflow: hidden;
-}
-
-
-/* =========================
+/* =========================================
    BACKGROUND VIDEO
-========================= */
+========================================= */
 
 .background-video {
   position: fixed;
-
   inset: 0;
 
   width: 100%;
@@ -49,80 +34,408 @@ body.modal-open {
 
   object-fit: cover;
 
-  z-index: -2;
-
+  z-index: -3;
   pointer-events: none;
 }
 
-
-/* =========================
-   VIDEO OVERLAY
-========================= */
-
 .video-overlay {
   position: fixed;
-
   inset: 0;
-
-  width: 100%;
-  height: 100%;
 
   background:
     linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.42),
-      rgba(0, 0, 0, 0.84)
+      rgba(0, 0, 0, 0.88)
     );
 
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 
-  -webkit-backdrop-filter: blur(2px);
-
-  z-index: -1;
-
+  z-index: -2;
   pointer-events: none;
 }
 
 
-/* =========================
-   MAIN
-========================= */
+/* =========================================
+   MAIN CONTAINER
+========================================= */
 
 .container {
   position: relative;
-
   z-index: 1;
 
   width: 90%;
-
   max-width: 600px;
 
   min-height: 100vh;
 
   margin: auto;
-
-  padding: 60px 25px 25px;
+  padding: 65px 20px 30px;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
 
   text-align: center;
 
-  animation:
-    pageEnter 1s ease;
+  animation: pageEnter 0.8s ease;
 }
 
 
-/* =========================
+/* =========================================
+   THREE DOT MENU BUTTON
+========================================= */
+
+.menu-button {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  font-size: 22px;
+
+  background:
+    rgba(20, 20, 20, 0.65);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.22);
+
+  border-radius: 15px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  cursor: pointer;
+
+  z-index: 2000;
+
+  transition: 0.3s ease;
+}
+
+.menu-button:hover {
+  transform: scale(1.08);
+
+  background:
+    rgba(255, 255, 255, 0.15);
+
+  border-color:
+    rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================
+   SIDE MENU
+========================================= */
+
+.side-menu {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1500;
+
+  visibility: hidden;
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.side-menu.active {
+  visibility: visible;
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+/* =========================================
+   MENU BACKDROP
+========================================= */
+
+.menu-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================================
+   MENU PANEL
+========================================= */
+
+.menu-panel {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 310px;
+  max-width: 88vw;
+  height: 100%;
+
+  padding: 25px 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 25, 25, 0.96),
+      rgba(5, 5, 5, 0.97)
+    );
+
+  border-left:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    -20px 0 60px rgba(0, 0, 0, 0.55);
+
+  transform: translateX(100%);
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu.active .menu-panel {
+  transform: translateX(0);
+}
+
+
+/* =========================================
+   MENU HEADER
+========================================= */
+
+.menu-header {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding-bottom: 22px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
+}
+
+.menu-logo {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #444,
+      #151515
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.08);
+
+  font-size: 20px;
+}
+
+.menu-heading {
+  flex: 1;
+  text-align: left;
+}
+
+.menu-heading h2 {
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+.menu-heading p {
+  font-size: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================
+   MENU CLOSE
+========================================= */
+
+.menu-close {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 50%;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.menu-close:hover {
+  transform: rotate(90deg);
+
+  background:
+    rgba(255, 255, 255, 0.16);
+}
+
+
+/* =========================================
+   MENU LINKS
+========================================= */
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.menu-link {
+  width: 100%;
+
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 10px 14px;
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+
+  text-align: left;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 17px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.menu-link:hover {
+  transform: translateX(-5px);
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  border-color:
+    rgba(255, 255, 255, 0.3);
+}
+
+.menu-link-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.09);
+
+  font-size: 17px;
+}
+
+.menu-arrow {
+  margin-left: auto;
+
+  opacity: 0.45;
+
+  transition: 0.3s ease;
+}
+
+.menu-link:hover .menu-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+
+/* =========================================
+   MENU FOOTER
+========================================= */
+
+.menu-footer {
+  margin-top: auto;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 11px;
+}
+
+
+/* =========================================
    PROFILE
-========================= */
+========================================= */
 
 .profile {
   width: 120px;
-
   height: 120px;
 
   padding: 4px;
@@ -134,10 +447,10 @@ body.modal-open {
   background:
     linear-gradient(
       135deg,
-      #ffffff,
-      #777777,
-      #222222,
-      #ffffff
+      #fff,
+      #777,
+      #222,
+      #fff
     );
 
   background-size: 300% 300%;
@@ -147,27 +460,14 @@ body.modal-open {
     profileGradient 5s ease infinite;
 
   box-shadow:
-    0 0 25px rgba(255,255,255,0.35),
-    0 0 60px rgba(255,255,255,0.15);
+    0 0 25px rgba(255, 255, 255, 0.35),
+    0 0 60px rgba(255, 255, 255, 0.15);
 
   overflow: hidden;
-
-  transition: 0.4s ease;
 }
-
-
-.profile:hover {
-  transform: scale(1.08);
-
-  box-shadow:
-    0 0 35px rgba(255,255,255,0.6),
-    0 0 80px rgba(255,255,255,0.2);
-}
-
 
 .profile img {
   width: 100%;
-
   height: 100%;
 
   display: block;
@@ -180,9 +480,9 @@ body.modal-open {
 }
 
 
-/* =========================
-   NAME
-========================= */
+/* =========================================
+   TITLE
+========================================= */
 
 h1 {
   font-size: 32px;
@@ -194,15 +494,14 @@ h1 {
   background:
     linear-gradient(
       90deg,
-      #ffffff,
-      #aaaaaa,
-      #ffffff
+      #fff,
+      #aaa,
+      #fff
     );
 
   background-size: 200% auto;
 
   -webkit-background-clip: text;
-
   background-clip: text;
 
   -webkit-text-fill-color: transparent;
@@ -211,52 +510,39 @@ h1 {
     textShine 4s linear infinite;
 }
 
-
-/* =========================
-   DESCRIPTION
-========================= */
-
 .description {
   color:
-    rgba(255,255,255,0.78);
+    rgba(255, 255, 255, 0.78);
 
   font-size: 16px;
 
   margin-bottom: 30px;
 
   text-shadow:
-    0 2px 10px rgba(0,0,0,0.7);
+    0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 
-/* =========================
-   SOCIALS
-========================= */
+/* =========================================
+   SOCIAL BUTTONS
+========================================= */
 
 .socials {
   width: 100%;
 
   display: flex;
-
   flex-direction: column;
 
   gap: 16px;
 }
 
-
-/* =========================
-   SOCIAL BUTTON
-========================= */
-
 .social-btn {
   position: relative;
 
   width: 100%;
-
   min-height: 70px;
 
   display: flex;
-
   align-items: center;
 
   padding: 0 18px;
@@ -266,7 +552,6 @@ h1 {
   text-decoration: none;
 
   font-family: inherit;
-
   font-size: inherit;
 
   text-align: left;
@@ -274,236 +559,136 @@ h1 {
   background:
     linear-gradient(
       135deg,
-      rgba(35,35,35,0.72),
-      rgba(10,10,10,0.60)
+      rgba(35, 35, 35, 0.76),
+      rgba(10, 10, 10, 0.65)
     );
 
   border:
-    1px solid rgba(255,255,255,0.20);
+    1px solid rgba(255, 255, 255, 0.2);
 
   border-radius: 20px;
 
   backdrop-filter: blur(18px);
-
   -webkit-backdrop-filter: blur(18px);
 
-  overflow: hidden;
-
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-
-  transition:
-    transform 0.35s ease,
-    background 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-
-  animation:
-    socialAppear 0.7s ease both;
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
   cursor: pointer;
+
+  transition: 0.35s ease;
+}
+
+.social-btn:hover {
+  transform:
+    translateY(-5px)
+    scale(1.02);
+
+  border-color:
+    rgba(255, 255, 255, 0.4);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.6);
 }
 
 
-/* =========================
-   BUTTON ANIMATION
-========================= */
-
-.social-btn:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-
-.social-btn:nth-child(2) {
-  animation-delay: 0.35s;
-}
-
-
-.social-btn:nth-child(3) {
-  animation-delay: 0.5s;
-}
-
-
-.social-btn:nth-child(4) {
-  animation-delay: 0.65s;
-}
-
-
-/* =========================
-   UNIFIED ICON STYLE
-========================= */
+/* =========================================
+   SOCIAL ICONS
+========================================= */
 
 .social-icon,
 .message-icon {
   width: 48px;
-
   height: 48px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   flex-shrink: 0;
 
   border-radius: 14px;
 
+  font-size: 25px;
+
   background:
-    rgba(255,255,255,0.10);
+    rgba(255, 255, 255, 0.1);
 
   border:
-    1px solid rgba(255,255,255,0.20);
+    1px solid rgba(255, 255, 255, 0.2);
 
   box-shadow:
-    inset 0 0 10px rgba(255,255,255,0.08),
-    0 5px 15px rgba(0,0,0,0.35);
+    inset 0 0 10px rgba(255, 255, 255, 0.08);
 
   transition: 0.35s ease;
 }
 
 
-/* =========================
-   ALL ICONS WHITE
-========================= */
+/* TikTok */
 
-.social-icon i,
-.message-icon i {
-  font-size: 24px;
-
-  color: #ffffff;
+.tiktok .social-icon {
+  color: white;
 
   text-shadow:
-    0 0 8px rgba(255,255,255,0.20);
+    -2px -2px 0 #00f2ea,
+    2px 2px 0 #ff0050;
 }
 
 
-/* =========================
-   REMOVE OLD ICON COLORS
-========================= */
+/* Facebook */
 
-.tiktok .social-icon,
-.facebook .social-icon,
+.facebook .social-icon {
+  color: #1877f2;
+
+  text-shadow:
+    0 0 15px rgba(24, 119, 242, 0.6);
+}
+
+
+/* Instagram */
+
 .instagram .social-icon {
   color: white;
 
   background:
-    rgba(255,255,255,0.10);
-
-  text-shadow: none;
+    linear-gradient(
+      135deg,
+      #833ab4,
+      #fd1d1d,
+      #fcb045
+    );
 }
 
 
-/* =========================
+/* Message */
+
+.message-icon {
+  color: white;
+}
+
+
+/* =========================================
    SOCIAL TEXT
-========================= */
+========================================= */
 
 .social-name {
   flex: 1;
 
   margin-left: 16px;
 
-  text-align: left;
-
   font-size: 17px;
 
   font-weight: 700;
 }
-
-
-/* =========================
-   ARROW
-========================= */
 
 .arrow {
   font-size: 24px;
 
   opacity: 0.55;
 
-  transition: 0.35s ease;
+  transition: 0.3s ease;
 }
-
-
-/* =========================
-   SHINE
-========================= */
-
-.social-btn::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-
-  left: -130%;
-
-  width: 70%;
-
-  height: 100%;
-
-  background:
-    linear-gradient(
-      100deg,
-      transparent,
-      rgba(255,255,255,0.20),
-      transparent
-    );
-
-  transform: skewX(-20deg);
-
-  transition:
-    left 0.7s ease;
-
-  pointer-events: none;
-}
-
-
-.social-btn:hover::before {
-  left: 140%;
-}
-
-
-/* =========================
-   HOVER
-========================= */
-
-.social-btn:hover {
-  transform:
-    translateY(-6px)
-    scale(1.02);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(50,50,50,0.80),
-      rgba(15,15,15,0.70)
-    );
-
-  border-color:
-    rgba(255,255,255,0.38);
-
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.60);
-}
-
-
-.social-btn:hover .social-icon,
-.social-btn:hover .message-icon {
-  transform:
-    scale(1.12)
-    rotate(-4deg);
-
-  background:
-    rgba(255,255,255,0.16);
-
-  border-color:
-    rgba(255,255,255,0.35);
-
-  box-shadow:
-    0 0 20px rgba(255,255,255,0.12);
-}
-
 
 .social-btn:hover .arrow {
   opacity: 1;
@@ -512,28 +697,31 @@ h1 {
     translateX(8px);
 }
 
+.social-btn:hover .social-icon,
+.social-btn:hover .message-icon {
+  transform:
+    scale(1.1)
+    rotate(-4deg);
+}
 
-/* =========================
-   MESSAGE MODAL
-========================= */
 
-.message-modal {
+/* =========================================
+   INFO MODALS
+========================================= */
+
+.info-modal {
   position: fixed;
-
   inset: 0;
 
-  z-index: 1000;
+  z-index: 1200;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   padding: 20px;
 
   visibility: hidden;
-
   opacity: 0;
 
   pointer-events: none;
@@ -543,37 +731,338 @@ h1 {
     visibility 0.3s ease;
 }
 
-
-.message-modal.active {
+.info-modal.active {
   visibility: visible;
-
   opacity: 1;
 
   pointer-events: auto;
 }
 
 
-/* =========================
-   MODAL BACKDROP
-========================= */
+/* =========================================
+   INFO BACKDROP
+========================================= */
 
-.modal-backdrop {
+.info-backdrop {
   position: absolute;
-
   inset: 0;
 
   background:
-    rgba(0,0,0,0.72);
+    rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   INFO BOX
+========================================= */
+
+.info-box {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 470px;
+
+  padding: 32px 25px;
+
+  text-align: center;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 30, 30, 0.95),
+      rgba(5, 5, 5, 0.96)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.75);
+
+  transform:
+    translateY(25px)
+    scale(0.94);
+
+  opacity: 0;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.info-modal.active .info-box {
+  transform:
+    translateY(0)
+    scale(1);
+
+  opacity: 1;
+}
+
+
+/* =========================================
+   INFO CLOSE
+========================================= */
+
+.info-close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.17);
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 17px;
+
+  transition: 0.3s ease;
+}
+
+.info-close:hover {
+  transform: rotate(90deg);
+
+  background:
+    rgba(255, 255, 255, 0.17);
+}
+
+
+/* =========================================
+   INFO ICON
+========================================= */
+
+.info-icon {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #444,
+      #111
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 0 30px rgba(255, 255, 255, 0.08);
+
+  font-size: 25px;
+}
+
+.info-box h2 {
+  font-size: 27px;
+
+  margin-bottom: 8px;
+}
+
+.info-name {
+  font-size: 17px;
+
+  font-weight: 700;
+
+  margin-bottom: 15px;
+
+  color:
+    rgba(255, 255, 255, 0.85);
+}
+
+.info-text {
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  line-height: 1.6;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   ABOUT TAGS
+========================================= */
+
+.info-tags {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 22px;
+}
+
+.info-tags span {
+  padding: 9px 13px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  font-size: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.75);
+}
+
+.info-tags i {
+  margin-right: 5px;
+}
+
+
+/* =========================================
+   SOCIAL MINI LINKS
+========================================= */
+
+.social-mini-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+.social-mini-links a {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  transition: 0.3s ease;
+}
+
+.social-mini-links a:hover {
+  transform: translateX(5px);
+
+  background:
+    rgba(255, 255, 255, 0.12);
+}
+
+.social-mini-links a > i:first-child {
+  width: 30px;
+
+  font-size: 21px;
+}
+
+.social-mini-links span {
+  flex: 1;
+
+  text-align: left;
+
+  font-weight: 700;
+}
+
+.social-mini-links a > i:last-child {
+  opacity: 0.45;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   MESSAGE MODAL
+========================================= */
+
+.message-modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1300;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.message-modal.active {
+  visibility: visible;
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+/* =========================================
+   MESSAGE BACKDROP
+========================================= */
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.75);
 
   backdrop-filter: blur(10px);
-
   -webkit-backdrop-filter: blur(10px);
 }
 
 
-/* =========================
+/* =========================================
    MESSAGE BOX
-========================= */
+========================================= */
 
 .message-box {
   position: relative;
@@ -581,7 +1070,6 @@ h1 {
   z-index: 2;
 
   width: 100%;
-
   max-width: 500px;
 
   max-height: 90vh;
@@ -594,21 +1082,16 @@ h1 {
 
   background:
     linear-gradient(
-      135deg,
-      rgba(30,30,30,0.94),
-      rgba(5,5,5,0.92)
+      145deg,
+      rgba(30, 30, 30, 0.97),
+      rgba(5, 5, 5, 0.96)
     );
 
   border:
-    1px solid rgba(255,255,255,0.20);
-
-  backdrop-filter: blur(25px);
-
-  -webkit-backdrop-filter: blur(25px);
+    1px solid rgba(255, 255, 255, 0.2);
 
   box-shadow:
-    0 25px 80px rgba(0,0,0,0.75),
-    0 0 50px rgba(255,255,255,0.05);
+    0 25px 80px rgba(0, 0, 0, 0.8);
 
   transform:
     translateY(30px)
@@ -621,7 +1104,6 @@ h1 {
     opacity 0.35s ease;
 }
 
-
 .message-modal.active .message-box {
   transform:
     translateY(0)
@@ -631,67 +1113,54 @@ h1 {
 }
 
 
-/* =========================
-   CLOSE BUTTON
-========================= */
+/* =========================================
+   MESSAGE CLOSE
+========================================= */
 
 .close-message {
   position: absolute;
 
   top: 14px;
-
   right: 14px;
 
   width: 38px;
-
   height: 38px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   color: white;
 
-  font-size: 28px;
+  font-size: 27px;
 
-  line-height: 1;
-
-  cursor: pointer;
+  background:
+    rgba(255, 255, 255, 0.08);
 
   border:
-    1px solid rgba(255,255,255,0.18);
+    1px solid rgba(255, 255, 255, 0.18);
 
   border-radius: 50%;
 
-  background:
-    rgba(255,255,255,0.08);
+  cursor: pointer;
 
   transition: 0.3s ease;
 }
 
-
 .close-message:hover {
-  transform:
-    rotate(90deg)
-    scale(1.08);
+  transform: rotate(90deg);
 
   background:
-    rgba(255,255,255,0.18);
-
-  border-color:
-    rgba(255,255,255,0.35);
+    rgba(255, 255, 255, 0.17);
 }
 
 
-/* =========================
+/* =========================================
    MESSAGE HEADER
-========================= */
+========================================= */
 
 .message-header {
   display: flex;
-
   align-items: center;
 
   gap: 14px;
@@ -703,16 +1172,12 @@ h1 {
   text-align: left;
 }
 
-
 .message-title-icon {
   width: 52px;
-
   height: 52px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   flex-shrink: 0;
@@ -720,28 +1185,13 @@ h1 {
   border-radius: 16px;
 
   background:
-    rgba(255,255,255,0.10);
+    rgba(255, 255, 255, 0.1);
 
   border:
-    1px solid rgba(255,255,255,0.20);
+    1px solid rgba(255, 255, 255, 0.2);
 
-  box-shadow:
-    0 0 20px rgba(255,255,255,0.10);
-
-  overflow: hidden;
+  font-size: 22px;
 }
-
-
-.message-title-icon i {
-  font-size: 24px;
-
-  color: white;
-}
-
-
-/* =========================
-   HEADER TEXT
-========================= */
 
 .message-header h2 {
   font-size: 21px;
@@ -749,18 +1199,17 @@ h1 {
   margin-bottom: 5px;
 }
 
-
 .message-header p {
   font-size: 13px;
 
   color:
-    rgba(255,255,255,0.55);
+    rgba(255, 255, 255, 0.55);
 }
 
 
-/* =========================
-   INPUTS
-========================= */
+/* =========================================
+   FORM
+========================================= */
 
 .message-box input,
 .message-box textarea {
@@ -777,10 +1226,10 @@ h1 {
   font-size: 15px;
 
   background:
-    rgba(255,255,255,0.07);
+    rgba(255, 255, 255, 0.07);
 
   border:
-    1px solid rgba(255,255,255,0.15);
+    1px solid rgba(255, 255, 255, 0.15);
 
   border-radius: 15px;
 
@@ -791,35 +1240,32 @@ h1 {
   transition: 0.3s ease;
 }
 
-
 .message-box textarea {
   min-height: 140px;
 }
 
-
 .message-box input::placeholder,
 .message-box textarea::placeholder {
   color:
-    rgba(255,255,255,0.45);
+    rgba(255, 255, 255, 0.45);
 }
-
 
 .message-box input:focus,
 .message-box textarea:focus {
   background:
-    rgba(255,255,255,0.10);
+    rgba(255, 255, 255, 0.1);
 
   border-color:
-    rgba(255,255,255,0.45);
+    rgba(255, 255, 255, 0.45);
 
   box-shadow:
-    0 0 20px rgba(255,255,255,0.08);
+    0 0 20px rgba(255, 255, 255, 0.08);
 }
 
 
-/* =========================
+/* =========================================
    SEND BUTTON
-========================= */
+========================================= */
 
 .send-btn {
   width: 100%;
@@ -829,9 +1275,7 @@ h1 {
   padding: 15px 18px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
   color: white;
@@ -839,51 +1283,39 @@ h1 {
   font-family: inherit;
 
   font-size: 16px;
-
   font-weight: 700;
 
   cursor: pointer;
 
   border:
-    1px solid rgba(255,255,255,0.25);
+    1px solid rgba(255, 255, 255, 0.25);
 
   border-radius: 15px;
 
   background:
     linear-gradient(
       135deg,
-      #333333,
-      #111111
+      #333,
+      #111
     );
-
-  box-shadow:
-    0 8px 25px rgba(0,0,0,0.40);
 
   transition: 0.3s ease;
 }
 
-
 .send-btn:hover {
-  transform:
-    translateY(-3px);
+  transform: translateY(-3px);
 
   background:
     linear-gradient(
       135deg,
-      #444444,
+      #444,
       #181818
     );
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.55),
-    0 0 20px rgba(255,255,255,0.08);
 }
-
 
 .send-btn:active {
   transform: scale(0.97);
 }
-
 
 .send-btn:disabled {
   opacity: 0.65;
@@ -892,9 +1324,9 @@ h1 {
 }
 
 
-/* =========================
+/* =========================================
    FORM STATUS
-========================= */
+========================================= */
 
 .form-status {
   min-height: 20px;
@@ -906,137 +1338,94 @@ h1 {
   text-align: center;
 }
 
-
 .form-status.success {
   color: #7cffb2;
-
-  text-shadow:
-    0 0 12px rgba(124,255,178,0.35);
 }
-
 
 .form-status.error {
   color: #ff7777;
-
-  text-shadow:
-    0 0 12px rgba(255,80,80,0.30);
 }
 
 
-/* =========================
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer {
   margin-top: auto;
 
-  padding-top: 50px;
+  padding-top: 55px;
 
   color:
-    rgba(255,255,255,0.48);
+    rgba(255, 255, 255, 0.45);
 
   font-size: 13px;
-
-  text-align: center;
 }
 
 
-/* =========================
+/* =========================================
    ANIMATIONS
-========================= */
+========================================= */
 
 @keyframes pageEnter {
 
   from {
     opacity: 0;
-
-    transform:
-      translateY(25px);
+    transform: translateY(25px);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
 }
-
-
-@keyframes socialAppear {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(25px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
 
 @keyframes profileFloat {
 
   0%,
   100% {
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
   50% {
-    transform:
-      translateY(-8px);
+    transform: translateY(-8px);
   }
 
 }
-
 
 @keyframes profileGradient {
 
   0% {
-    background-position:
-      0% 50%;
+    background-position: 0% 50%;
   }
 
   50% {
-    background-position:
-      100% 50%;
+    background-position: 100% 50%;
   }
 
   100% {
-    background-position:
-      0% 50%;
+    background-position: 0% 50%;
   }
 
 }
-
 
 @keyframes textShine {
 
   0% {
-    background-position:
-      0% center;
+    background-position: 0% center;
   }
 
   100% {
-    background-position:
-      200% center;
+    background-position: 200% center;
   }
 
 }
 
 
-/* =========================
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media (max-width: 500px) {
 
@@ -1044,21 +1433,29 @@ footer {
     width: 92%;
 
     padding:
-      55px
+      60px
       18px
-      20px;
+      25px;
+  }
+
+
+  .menu-button {
+    top: 14px;
+    right: 14px;
+
+    width: 44px;
+    height: 44px;
   }
 
 
   .profile {
     width: 105px;
-
     height: 105px;
   }
 
 
   h1 {
-    font-size: 26px;
+    font-size: 27px;
   }
 
 
@@ -1067,66 +1464,4 @@ footer {
   }
 
 
-  .social-btn {
-    min-height: 66px;
-
-    border-radius: 18px;
-  }
-
-
-  .social-icon,
-  .message-icon {
-    width: 46px;
-
-    height: 46px;
-  }
-
-
-  .social-icon i,
-  .message-icon i {
-    font-size: 23px;
-  }
-
-
-  .social-name {
-    font-size: 15px;
-  }
-
-
-  .arrow {
-    font-size: 22px;
-  }
-
-
-  .message-modal {
-    padding: 15px;
-  }
-
-
-  .message-box {
-    max-height: 88vh;
-
-    padding: 22px;
-
-    border-radius: 22px;
-  }
-
-
-  .message-title-icon {
-    width: 48px;
-
-    height: 48px;
-  }
-
-
-  .message-header h2 {
-    font-size: 19px;
-  }
-
-
-  .message-box input,
-  .message-box textarea {
-    font-size: 14px;
-  }
-
-}
+  .social-btn
