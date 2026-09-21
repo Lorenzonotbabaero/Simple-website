@@ -39,7 +39,7 @@ lorenzo-website/
 ## 🔗 Social Media
 
 - TikTok: @loren.zoofficial
-- Facebook: Lorenzo II C. Badilla
+- Facebook: Lorenzo Badilla
 - Instagram: @lor.zxa
 
 📄 License
